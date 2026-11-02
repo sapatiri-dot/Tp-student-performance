@@ -27658,7 +27658,7 @@ Estudiantes
 Nota final promedio
 </p>
 <p class="value-box-value">
-</p><div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb4" data-startfrom="80" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 79;"><span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>filtrado <span class="op">&amp;&amp;</span> filtrado<span class="op">.</span><span class="at">length</span> <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">?</span> <span class="fu">media</span>(filtrado<span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">final_score</span>)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>) <span class="op">:</span> <span class="dv">0</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</p><div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb4" data-startfrom="80" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 79;"><span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a><span class="vs">`</span><span class="sc">${</span>filtrado <span class="op">&amp;&amp;</span> filtrado<span class="op">.</span><span class="at">length</span> <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">?</span> <span class="fu">media</span>(filtrado<span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">final_score</span>)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>) <span class="op">:</span> <span class="dv">0</span><span class="sc">}</span><span class="vs">`</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display html-fill-item html-fill-container">
 <div id="ojs-cell-4" data-nodetype="expression" class="html-fill-item html-fill-container">
 
@@ -27676,8 +27676,7 @@ Nota final promedio
 % de aprobados
 </p>
 <p class="value-box-value">
-</p><div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb5" data-startfrom="86" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 85;"><span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>({<span class="dt">color</span><span class="op">:</span> <span class="st">&quot;#e3f4ef&quot;</span><span class="op">,</span></span>
-<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> (<span class="dv">100</span> <span class="op">*</span> <span class="fu">media</span>(filtrado<span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">passed</span> <span class="op">===</span> <span class="st">&quot;Yes&quot;</span> <span class="op">?</span> <span class="dv">1</span> <span class="op">:</span> <span class="dv">0</span>))<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>) <span class="op">+</span> <span class="st">&quot;%&quot;</span>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</p><div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb5" data-startfrom="86" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 85;"><span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a><span class="vs">`</span><span class="sc">${</span>filtrado <span class="op">&amp;&amp;</span> filtrado<span class="op">.</span><span class="at">length</span> <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">?</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">round</span>(<span class="dv">100</span> <span class="op">*</span> <span class="fu">media</span>(filtrado<span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">final_score</span> <span class="op">&gt;=</span> <span class="dv">60</span>)) <span class="op">+</span> <span class="st">&quot; %&quot;</span> <span class="op">:</span> <span class="st">&quot;0 %&quot;</span><span class="sc">}</span><span class="vs">`</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display html-fill-item html-fill-container">
 <div id="ojs-cell-5" data-nodetype="expression" class="html-fill-item html-fill-container">
 
@@ -27695,8 +27694,10 @@ Nota final promedio
 Asistencia promedio
 </p>
 <p class="value-box-value">
-</p><div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb6" data-startfrom="93" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 92;"><span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a>({<span class="dt">color</span><span class="op">:</span> <span class="st">&quot;#e8f0f8&quot;</span><span class="op">,</span></span>
-<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="fu">media</span>(filtrado<span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">attendance_rate</span>)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>) <span class="op">+</span> <span class="st">&quot;%&quot;</span>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</p><div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb6" data-startfrom="92" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 91;"><span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a>({</span>
+<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a>  <span class="dt">color</span><span class="op">:</span> <span class="st">&quot;#e8f0f8&quot;</span><span class="op">,</span></span>
+<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> filtrado <span class="op">&amp;&amp;</span> filtrado<span class="op">.</span><span class="at">length</span> <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">?</span> <span class="fu">media</span>(filtrado<span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">attendance_rate</span>)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>) <span class="op">+</span> <span class="st">&quot;%&quot;</span> <span class="op">:</span> <span class="st">&quot;0%&quot;</span></span>
+<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display html-fill-item html-fill-container">
 <div id="ojs-cell-6" data-nodetype="expression" class="html-fill-item html-fill-container">
 
@@ -27714,8 +27715,10 @@ Asistencia promedio
 Horas de estudio / semana
 </p>
 <p class="value-box-value">
-</p><div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb7" data-startfrom="100" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 99;"><span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a>({<span class="dt">color</span><span class="op">:</span> <span class="st">&quot;#e8f0f8&quot;</span><span class="op">,</span></span>
-<span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="fu">media</span>(filtrado<span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">study_hours_per_week</span>)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</p><div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb7" data-startfrom="101" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 100;"><span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a>({</span>
+<span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a>  <span class="dt">color</span><span class="op">:</span> <span class="st">&quot;#e8f0f8&quot;</span><span class="op">,</span></span>
+<span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> filtrado <span class="op">&amp;&amp;</span> filtrado<span class="op">.</span><span class="at">length</span> <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">?</span> <span class="fu">media</span>(filtrado<span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">study_hours_per_week</span>)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>) <span class="op">:</span> <span class="st">&quot;0&quot;</span></span>
+<span id="cb7-104"><a href="#cb7-104" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display html-fill-item html-fill-container">
 <div id="ojs-cell-7" data-nodetype="expression" class="html-fill-item html-fill-container">
 
@@ -27734,15 +27737,15 @@ grid-auto-rows: minmax(0, 1fr);">
 ¿Dónde se concentran las notas finales?
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb8" data-startfrom="108" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 107;"><span id="cb8-108"><a href="#cb8-108" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb8-109"><a href="#cb8-109" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">&quot;Nota final&quot;</span>}<span class="op">,</span></span>
-<span id="cb8-110"><a href="#cb8-110" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">&quot;Frecuencia&quot;</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
-<span id="cb8-111"><a href="#cb8-111" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb8-112"><a href="#cb8-112" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">rectY</span>(filtrado<span class="op">,</span> Plot<span class="op">.</span><span class="fu">binX</span>({<span class="dt">y</span><span class="op">:</span> <span class="st">&quot;count&quot;</span>}<span class="op">,</span></span>
-<span id="cb8-113"><a href="#cb8-113" aria-hidden="true" tabindex="-1"></a>      {<span class="dt">x</span><span class="op">:</span> <span class="st">&quot;final_score&quot;</span><span class="op">,</span> <span class="dt">thresholds</span><span class="op">:</span> <span class="dv">25</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">&quot;steelblue&quot;</span>}))<span class="op">,</span></span>
-<span id="cb8-114"><a href="#cb8-114" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([<span class="dv">0</span>])</span>
-<span id="cb8-115"><a href="#cb8-115" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb8-116"><a href="#cb8-116" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb8" data-startfrom="111" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 110;"><span id="cb8-111"><a href="#cb8-111" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb8-112"><a href="#cb8-112" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">&quot;Nota final&quot;</span>}<span class="op">,</span></span>
+<span id="cb8-113"><a href="#cb8-113" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">&quot;Frecuencia&quot;</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb8-114"><a href="#cb8-114" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb8-115"><a href="#cb8-115" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">rectY</span>(filtrado<span class="op">,</span> Plot<span class="op">.</span><span class="fu">binX</span>({<span class="dt">y</span><span class="op">:</span> <span class="st">&quot;count&quot;</span>}<span class="op">,</span></span>
+<span id="cb8-116"><a href="#cb8-116" aria-hidden="true" tabindex="-1"></a>      {<span class="dt">x</span><span class="op">:</span> <span class="st">&quot;final_score&quot;</span><span class="op">,</span> <span class="dt">thresholds</span><span class="op">:</span> <span class="dv">25</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">&quot;steelblue&quot;</span>}))<span class="op">,</span></span>
+<span id="cb8-117"><a href="#cb8-117" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([<span class="dv">0</span>])</span>
+<span id="cb8-118"><a href="#cb8-118" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb8-119"><a href="#cb8-119" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display html-fill-item html-fill-container">
 <div id="ojs-cell-8" data-nodetype="expression" class="html-fill-item html-fill-container">
 
@@ -27759,18 +27762,18 @@ grid-auto-rows: minmax(0, 1fr);">
 ¿Influye el nivel educativo de los padres?
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb9" data-startfrom="121" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 120;"><span id="cb9-121"><a href="#cb9-121" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb9-122"><a href="#cb9-122" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marginLeft</span><span class="op">:</span> <span class="dv">90</span><span class="op">,</span></span>
-<span id="cb9-123"><a href="#cb9-123" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">&quot;% de estudiantes&quot;</span><span class="op">,</span> <span class="dt">percent</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
-<span id="cb9-124"><a href="#cb9-124" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="kw">null</span>}<span class="op">,</span></span>
-<span id="cb9-125"><a href="#cb9-125" aria-hidden="true" tabindex="-1"></a>  <span class="dt">color</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="st">&quot;Yes&quot;</span><span class="op">,</span> <span class="st">&quot;No&quot;</span>]<span class="op">,</span> <span class="dt">range</span><span class="op">:</span> [<span class="st">&quot;#2a9d8f&quot;</span><span class="op">,</span> <span class="st">&quot;#e76f51&quot;</span>]<span class="op">,</span></span>
-<span id="cb9-126"><a href="#cb9-126" aria-hidden="true" tabindex="-1"></a>          <span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="kw">null</span>}<span class="op">,</span></span>
-<span id="cb9-127"><a href="#cb9-127" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb9-128"><a href="#cb9-128" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">barX</span>(filtrado<span class="op">,</span> Plot<span class="op">.</span><span class="fu">groupY</span>({<span class="dt">x</span><span class="op">:</span> <span class="st">&quot;count&quot;</span>}<span class="op">,</span></span>
-<span id="cb9-129"><a href="#cb9-129" aria-hidden="true" tabindex="-1"></a>      {<span class="dt">y</span><span class="op">:</span> <span class="st">&quot;parent_education&quot;</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">&quot;passed&quot;</span><span class="op">,</span> <span class="dt">offset</span><span class="op">:</span> <span class="st">&quot;normalize&quot;</span><span class="op">,</span> <span class="dt">tip</span><span class="op">:</span> <span class="kw">true</span>}))<span class="op">,</span></span>
-<span id="cb9-130"><a href="#cb9-130" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleX</span>([<span class="dv">0</span>])</span>
-<span id="cb9-131"><a href="#cb9-131" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb9-132"><a href="#cb9-132" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb9" data-startfrom="124" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 123;"><span id="cb9-124"><a href="#cb9-124" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb9-125"><a href="#cb9-125" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marginLeft</span><span class="op">:</span> <span class="dv">90</span><span class="op">,</span></span>
+<span id="cb9-126"><a href="#cb9-126" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">&quot;% de estudiantes&quot;</span><span class="op">,</span> <span class="dt">percent</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb9-127"><a href="#cb9-127" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="kw">null</span>}<span class="op">,</span></span>
+<span id="cb9-128"><a href="#cb9-128" aria-hidden="true" tabindex="-1"></a>  <span class="dt">color</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="st">&quot;Yes&quot;</span><span class="op">,</span> <span class="st">&quot;No&quot;</span>]<span class="op">,</span> <span class="dt">range</span><span class="op">:</span> [<span class="st">&quot;#2a9d8f&quot;</span><span class="op">,</span> <span class="st">&quot;#e76f51&quot;</span>]<span class="op">,</span></span>
+<span id="cb9-129"><a href="#cb9-129" aria-hidden="true" tabindex="-1"></a>          <span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="kw">null</span>}<span class="op">,</span></span>
+<span id="cb9-130"><a href="#cb9-130" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb9-131"><a href="#cb9-131" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">barX</span>(filtrado<span class="op">,</span> Plot<span class="op">.</span><span class="fu">groupY</span>({<span class="dt">x</span><span class="op">:</span> <span class="st">&quot;count&quot;</span>}<span class="op">,</span></span>
+<span id="cb9-132"><a href="#cb9-132" aria-hidden="true" tabindex="-1"></a>      {<span class="dt">y</span><span class="op">:</span> <span class="st">&quot;parent_education&quot;</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">&quot;passed&quot;</span><span class="op">,</span> <span class="dt">offset</span><span class="op">:</span> <span class="st">&quot;normalize&quot;</span><span class="op">,</span> <span class="dt">tip</span><span class="op">:</span> <span class="kw">true</span>}))<span class="op">,</span></span>
+<span id="cb9-133"><a href="#cb9-133" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleX</span>([<span class="dv">0</span>])</span>
+<span id="cb9-134"><a href="#cb9-134" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb9-135"><a href="#cb9-135" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display html-fill-item html-fill-container">
 <div id="ojs-cell-9" data-nodetype="expression" class="html-fill-item html-fill-container">
 
@@ -27794,17 +27797,17 @@ grid-auto-rows: minmax(0, 1fr);">
 ¿Estudiar más sube la nota?
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb10" data-startfrom="141" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 140;"><span id="cb10-141"><a href="#cb10-141" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb10-142"><a href="#cb10-142" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">&quot;Horas de estudio por semana&quot;</span>}<span class="op">,</span></span>
-<span id="cb10-143"><a href="#cb10-143" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">&quot;Nota final&quot;</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
-<span id="cb10-144"><a href="#cb10-144" aria-hidden="true" tabindex="-1"></a>  <span class="dt">color</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="st">&quot;No&quot;</span><span class="op">,</span> <span class="st">&quot;Yes&quot;</span>]<span class="op">,</span> <span class="dt">range</span><span class="op">:</span> [<span class="st">&quot;#e76f51&quot;</span><span class="op">,</span> <span class="st">&quot;#2a9d8f&quot;</span>]<span class="op">,</span></span>
-<span id="cb10-145"><a href="#cb10-145" aria-hidden="true" tabindex="-1"></a>          <span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">&quot;Aprobó&quot;</span>}<span class="op">,</span></span>
-<span id="cb10-146"><a href="#cb10-146" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb10-147"><a href="#cb10-147" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>(filtrado<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">&quot;study_hours_per_week&quot;</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">&quot;final_score&quot;</span><span class="op">,</span></span>
-<span id="cb10-148"><a href="#cb10-148" aria-hidden="true" tabindex="-1"></a>      <span class="dt">stroke</span><span class="op">:</span> <span class="st">&quot;passed&quot;</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">3</span><span class="op">,</span> <span class="dt">fillOpacity</span><span class="op">:</span> <span class="fl">0.4</span><span class="op">,</span></span>
-<span id="cb10-149"><a href="#cb10-149" aria-hidden="true" tabindex="-1"></a>      <span class="dt">title</span><span class="op">:</span> d <span class="kw">=&gt;</span> <span class="vs">`ID: </span><span class="sc">${</span>d<span class="op">.</span><span class="at">student_id</span><span class="sc">}</span><span class="vs">`</span><span class="op">,</span> <span class="dt">tip</span><span class="op">:</span> <span class="kw">true</span>})</span>
-<span id="cb10-150"><a href="#cb10-150" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb10-151"><a href="#cb10-151" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb10" data-startfrom="144" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 143;"><span id="cb10-144"><a href="#cb10-144" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb10-145"><a href="#cb10-145" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">&quot;Horas de estudio por semana&quot;</span>}<span class="op">,</span></span>
+<span id="cb10-146"><a href="#cb10-146" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">&quot;Nota final&quot;</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb10-147"><a href="#cb10-147" aria-hidden="true" tabindex="-1"></a>  <span class="dt">color</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="st">&quot;No&quot;</span><span class="op">,</span> <span class="st">&quot;Yes&quot;</span>]<span class="op">,</span> <span class="dt">range</span><span class="op">:</span> [<span class="st">&quot;#e76f51&quot;</span><span class="op">,</span> <span class="st">&quot;#2a9d8f&quot;</span>]<span class="op">,</span></span>
+<span id="cb10-148"><a href="#cb10-148" aria-hidden="true" tabindex="-1"></a>          <span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">&quot;Aprobó&quot;</span>}<span class="op">,</span></span>
+<span id="cb10-149"><a href="#cb10-149" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb10-150"><a href="#cb10-150" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>(filtrado<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">&quot;study_hours_per_week&quot;</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">&quot;final_score&quot;</span><span class="op">,</span></span>
+<span id="cb10-151"><a href="#cb10-151" aria-hidden="true" tabindex="-1"></a>      <span class="dt">stroke</span><span class="op">:</span> <span class="st">&quot;passed&quot;</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">3</span><span class="op">,</span> <span class="dt">fillOpacity</span><span class="op">:</span> <span class="fl">0.4</span><span class="op">,</span></span>
+<span id="cb10-152"><a href="#cb10-152" aria-hidden="true" tabindex="-1"></a>      <span class="dt">title</span><span class="op">:</span> d <span class="kw">=&gt;</span> <span class="vs">`ID: </span><span class="sc">${</span>d<span class="op">.</span><span class="at">student_id</span><span class="sc">}</span><span class="vs">`</span><span class="op">,</span> <span class="dt">tip</span><span class="op">:</span> <span class="kw">true</span>})</span>
+<span id="cb10-153"><a href="#cb10-153" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb10-154"><a href="#cb10-154" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display html-fill-item html-fill-container">
 <div id="ojs-cell-10" data-nodetype="expression" class="html-fill-item html-fill-container">
 
@@ -27821,16 +27824,16 @@ grid-auto-rows: minmax(0, 1fr);">
 ¿La nota anterior anticipa la final?
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb11" data-startfrom="156" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 155;"><span id="cb11-156"><a href="#cb11-156" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb11-157"><a href="#cb11-157" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">&quot;Nota anterior&quot;</span>}<span class="op">,</span></span>
-<span id="cb11-158"><a href="#cb11-158" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">&quot;Nota final&quot;</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
-<span id="cb11-159"><a href="#cb11-159" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb11-160"><a href="#cb11-160" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>(filtrado<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">&quot;previous_score&quot;</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">&quot;final_score&quot;</span><span class="op">,</span></span>
-<span id="cb11-161"><a href="#cb11-161" aria-hidden="true" tabindex="-1"></a>      <span class="dt">fill</span><span class="op">:</span> <span class="st">&quot;steelblue&quot;</span><span class="op">,</span> <span class="dt">fillOpacity</span><span class="op">:</span> <span class="fl">0.5</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">3</span><span class="op">,</span> <span class="dt">tip</span><span class="op">:</span> <span class="kw">true</span>})<span class="op">,</span></span>
-<span id="cb11-162"><a href="#cb11-162" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">linearRegressionY</span>(filtrado<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">&quot;previous_score&quot;</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">&quot;final_score&quot;</span><span class="op">,</span></span>
-<span id="cb11-163"><a href="#cb11-163" aria-hidden="true" tabindex="-1"></a>      <span class="dt">stroke</span><span class="op">:</span> <span class="st">&quot;#e76f51&quot;</span>})</span>
-<span id="cb11-164"><a href="#cb11-164" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb11-165"><a href="#cb11-165" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb11" data-startfrom="159" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 158;"><span id="cb11-159"><a href="#cb11-159" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb11-160"><a href="#cb11-160" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">&quot;Nota anterior&quot;</span>}<span class="op">,</span></span>
+<span id="cb11-161"><a href="#cb11-161" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">&quot;Nota final&quot;</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb11-162"><a href="#cb11-162" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb11-163"><a href="#cb11-163" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>(filtrado<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">&quot;previous_score&quot;</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">&quot;final_score&quot;</span><span class="op">,</span></span>
+<span id="cb11-164"><a href="#cb11-164" aria-hidden="true" tabindex="-1"></a>      <span class="dt">fill</span><span class="op">:</span> <span class="st">&quot;steelblue&quot;</span><span class="op">,</span> <span class="dt">fillOpacity</span><span class="op">:</span> <span class="fl">0.5</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">3</span><span class="op">,</span> <span class="dt">tip</span><span class="op">:</span> <span class="kw">true</span>})<span class="op">,</span></span>
+<span id="cb11-165"><a href="#cb11-165" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">linearRegressionY</span>(filtrado<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">&quot;previous_score&quot;</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">&quot;final_score&quot;</span><span class="op">,</span></span>
+<span id="cb11-166"><a href="#cb11-166" aria-hidden="true" tabindex="-1"></a>      <span class="dt">stroke</span><span class="op">:</span> <span class="st">&quot;#e76f51&quot;</span>})</span>
+<span id="cb11-167"><a href="#cb11-167" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb11-168"><a href="#cb11-168" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display html-fill-item html-fill-container">
 <div id="ojs-cell-11" data-nodetype="expression" class="html-fill-item html-fill-container">
 
@@ -27851,12 +27854,12 @@ grid-auto-rows: minmax(0, 1fr);">
 ¿Internet marca diferencia?
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb12" data-startfrom="172" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 171;"><span id="cb12-172"><a href="#cb12-172" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb12-173"><a href="#cb12-173" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">&quot;Acceso a internet&quot;</span>}<span class="op">,</span></span>
-<span id="cb12-174"><a href="#cb12-174" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">&quot;Nota final&quot;</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
-<span id="cb12-175"><a href="#cb12-175" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [Plot<span class="op">.</span><span class="fu">boxY</span>(filtrado<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">&quot;internet_access&quot;</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">&quot;final_score&quot;</span><span class="op">,</span></span>
-<span id="cb12-176"><a href="#cb12-176" aria-hidden="true" tabindex="-1"></a>    <span class="dt">fill</span><span class="op">:</span> <span class="st">&quot;internet_access&quot;</span>})]</span>
-<span id="cb12-177"><a href="#cb12-177" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb12" data-startfrom="175" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 174;"><span id="cb12-175"><a href="#cb12-175" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb12-176"><a href="#cb12-176" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">&quot;Acceso a internet&quot;</span>}<span class="op">,</span></span>
+<span id="cb12-177"><a href="#cb12-177" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">&quot;Nota final&quot;</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb12-178"><a href="#cb12-178" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [Plot<span class="op">.</span><span class="fu">boxY</span>(filtrado<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">&quot;internet_access&quot;</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">&quot;final_score&quot;</span><span class="op">,</span></span>
+<span id="cb12-179"><a href="#cb12-179" aria-hidden="true" tabindex="-1"></a>    <span class="dt">fill</span><span class="op">:</span> <span class="st">&quot;internet_access&quot;</span>})]</span>
+<span id="cb12-180"><a href="#cb12-180" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display html-fill-item html-fill-container">
 <div id="ojs-cell-12" data-nodetype="expression" class="html-fill-item html-fill-container">
 
@@ -27873,12 +27876,12 @@ grid-auto-rows: minmax(0, 1fr);">
 ¿Y las actividades extraescolares?
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb13" data-startfrom="182" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 181;"><span id="cb13-182"><a href="#cb13-182" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb13-183"><a href="#cb13-183" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">&quot;Actividades extraescolares&quot;</span>}<span class="op">,</span></span>
-<span id="cb13-184"><a href="#cb13-184" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">&quot;Nota final&quot;</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
-<span id="cb13-185"><a href="#cb13-185" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [Plot<span class="op">.</span><span class="fu">boxY</span>(filtrado<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">&quot;extracurricular&quot;</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">&quot;final_score&quot;</span><span class="op">,</span></span>
-<span id="cb13-186"><a href="#cb13-186" aria-hidden="true" tabindex="-1"></a>    <span class="dt">fill</span><span class="op">:</span> <span class="st">&quot;extracurricular&quot;</span>})]</span>
-<span id="cb13-187"><a href="#cb13-187" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb13" data-startfrom="185" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 184;"><span id="cb13-185"><a href="#cb13-185" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb13-186"><a href="#cb13-186" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">&quot;Actividades extraescolares&quot;</span>}<span class="op">,</span></span>
+<span id="cb13-187"><a href="#cb13-187" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">&quot;Nota final&quot;</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb13-188"><a href="#cb13-188" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [Plot<span class="op">.</span><span class="fu">boxY</span>(filtrado<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">&quot;extracurricular&quot;</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">&quot;final_score&quot;</span><span class="op">,</span></span>
+<span id="cb13-189"><a href="#cb13-189" aria-hidden="true" tabindex="-1"></a>    <span class="dt">fill</span><span class="op">:</span> <span class="st">&quot;extracurricular&quot;</span>})]</span>
+<span id="cb13-190"><a href="#cb13-190" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display html-fill-item html-fill-container">
 <div id="ojs-cell-13" data-nodetype="expression" class="html-fill-item html-fill-container">
 
@@ -27902,15 +27905,15 @@ grid-auto-rows: minmax(0, 1fr);">
 Histograma con intervalos de clase (responde a los filtros)
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb14" data-startfrom="196" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 195;"><span id="cb14-196"><a href="#cb14-196" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb14-197"><a href="#cb14-197" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">&quot;Horas de estudio por semana&quot;</span>}<span class="op">,</span></span>
-<span id="cb14-198"><a href="#cb14-198" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">&quot;Frecuencia absoluta&quot;</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
-<span id="cb14-199"><a href="#cb14-199" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb14-200"><a href="#cb14-200" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">rectY</span>(filtrado<span class="op">,</span> Plot<span class="op">.</span><span class="fu">binX</span>({<span class="dt">y</span><span class="op">:</span> <span class="st">&quot;count&quot;</span>}<span class="op">,</span></span>
-<span id="cb14-201"><a href="#cb14-201" aria-hidden="true" tabindex="-1"></a>      {<span class="dt">x</span><span class="op">:</span> <span class="st">&quot;study_hours_per_week&quot;</span><span class="op">,</span> <span class="dt">thresholds</span><span class="op">:</span> <span class="dv">8</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">&quot;steelblue&quot;</span>}))<span class="op">,</span></span>
-<span id="cb14-202"><a href="#cb14-202" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([<span class="dv">0</span>])</span>
-<span id="cb14-203"><a href="#cb14-203" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb14-204"><a href="#cb14-204" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb14" data-startfrom="199" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 198;"><span id="cb14-199"><a href="#cb14-199" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb14-200"><a href="#cb14-200" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">&quot;Horas de estudio por semana&quot;</span>}<span class="op">,</span></span>
+<span id="cb14-201"><a href="#cb14-201" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">&quot;Frecuencia absoluta&quot;</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb14-202"><a href="#cb14-202" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb14-203"><a href="#cb14-203" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">rectY</span>(filtrado<span class="op">,</span> Plot<span class="op">.</span><span class="fu">binX</span>({<span class="dt">y</span><span class="op">:</span> <span class="st">&quot;count&quot;</span>}<span class="op">,</span></span>
+<span id="cb14-204"><a href="#cb14-204" aria-hidden="true" tabindex="-1"></a>      {<span class="dt">x</span><span class="op">:</span> <span class="st">&quot;study_hours_per_week&quot;</span><span class="op">,</span> <span class="dt">thresholds</span><span class="op">:</span> <span class="dv">8</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">&quot;steelblue&quot;</span>}))<span class="op">,</span></span>
+<span id="cb14-205"><a href="#cb14-205" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([<span class="dv">0</span>])</span>
+<span id="cb14-206"><a href="#cb14-206" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb14-207"><a href="#cb14-207" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display html-fill-item html-fill-container">
 <div id="ojs-cell-14" data-nodetype="expression" class="html-fill-item html-fill-container">
 
@@ -27932,20 +27935,20 @@ Tabla de frecuencias (dataset completo, TP1)
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<div id="nyyjseqngl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;" class="html-fill-item html-fill-container">
-<style>#nyyjseqngl table {
+<div id="clesrbojsk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;" class="html-fill-item html-fill-container">
+<style>#clesrbojsk table {
 font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
 }
-#nyyjseqngl thead, #nyyjseqngl tbody, #nyyjseqngl tfoot, #nyyjseqngl tr, #nyyjseqngl td, #nyyjseqngl th {
+#clesrbojsk thead, #clesrbojsk tbody, #clesrbojsk tfoot, #clesrbojsk tr, #clesrbojsk td, #clesrbojsk th {
 border-style: none;
 }
-#nyyjseqngl p {
+#clesrbojsk p {
 margin: 0;
 padding: 0;
 }
-#nyyjseqngl .gt_table {
+#clesrbojsk .gt_table {
 display: table;
 border-collapse: collapse;
 line-height: normal;
@@ -27970,11 +27973,11 @@ border-left-style: none;
 border-left-width: 2px;
 border-left-color: #D3D3D3;
 }
-#nyyjseqngl .gt_caption {
+#clesrbojsk .gt_caption {
 padding-top: 4px;
 padding-bottom: 4px;
 }
-#nyyjseqngl .gt_title {
+#clesrbojsk .gt_title {
 color: #333333;
 font-size: 125%;
 font-weight: initial;
@@ -27985,7 +27988,7 @@ padding-right: 5px;
 border-bottom-color: #FFFFFF;
 border-bottom-width: 0;
 }
-#nyyjseqngl .gt_subtitle {
+#clesrbojsk .gt_subtitle {
 color: #333333;
 font-size: 85%;
 font-weight: initial;
@@ -27996,7 +27999,7 @@ padding-right: 5px;
 border-top-color: #FFFFFF;
 border-top-width: 0;
 }
-#nyyjseqngl .gt_heading {
+#clesrbojsk .gt_heading {
 background-color: #FFFFFF;
 text-align: center;
 border-bottom-color: #FFFFFF;
@@ -28007,12 +28010,12 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#nyyjseqngl .gt_bottom_border {
+#clesrbojsk .gt_bottom_border {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#nyyjseqngl .gt_col_headings {
+#clesrbojsk .gt_col_headings {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -28026,7 +28029,7 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#nyyjseqngl .gt_col_heading {
+#clesrbojsk .gt_col_heading {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -28045,7 +28048,7 @@ padding-left: 5px;
 padding-right: 5px;
 overflow-x: hidden;
 }
-#nyyjseqngl .gt_column_spanner_outer {
+#clesrbojsk .gt_column_spanner_outer {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -28056,13 +28059,13 @@ padding-bottom: 0;
 padding-left: 4px;
 padding-right: 4px;
 }
-#nyyjseqngl .gt_column_spanner_outer:first-child {
+#clesrbojsk .gt_column_spanner_outer:first-child {
 padding-left: 0;
 }
-#nyyjseqngl .gt_column_spanner_outer:last-child {
+#clesrbojsk .gt_column_spanner_outer:last-child {
 padding-right: 0;
 }
-#nyyjseqngl .gt_column_spanner {
+#clesrbojsk .gt_column_spanner {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
@@ -28073,10 +28076,10 @@ overflow-x: hidden;
 display: inline-block;
 width: 100%;
 }
-#nyyjseqngl .gt_spanner_row {
+#clesrbojsk .gt_spanner_row {
 border-bottom-style: hidden;
 }
-#nyyjseqngl .gt_group_heading {
+#clesrbojsk .gt_group_heading {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -28101,7 +28104,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 text-align: left;
 }
-#nyyjseqngl .gt_empty_group_heading {
+#clesrbojsk .gt_empty_group_heading {
 padding: 0.5px;
 color: #333333;
 background-color: #FFFFFF;
@@ -28115,13 +28118,13 @@ border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 vertical-align: middle;
 }
-#nyyjseqngl .gt_from_md > :first-child {
+#clesrbojsk .gt_from_md > :first-child {
 margin-top: 0;
 }
-#nyyjseqngl .gt_from_md > :last-child {
+#clesrbojsk .gt_from_md > :last-child {
 margin-bottom: 0;
 }
-#nyyjseqngl .gt_row {
+#clesrbojsk .gt_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -28139,7 +28142,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 overflow-x: hidden;
 }
-#nyyjseqngl .gt_stub {
+#clesrbojsk .gt_stub {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -28151,7 +28154,7 @@ border-right-color: #D3D3D3;
 padding-left: 5px;
 padding-right: 5px;
 }
-#nyyjseqngl .gt_stub_row_group {
+#clesrbojsk .gt_stub_row_group {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -28164,13 +28167,13 @@ padding-left: 5px;
 padding-right: 5px;
 vertical-align: top;
 }
-#nyyjseqngl .gt_row_group_first td {
+#clesrbojsk .gt_row_group_first td {
 border-top-width: 2px;
 }
-#nyyjseqngl .gt_row_group_first th {
+#clesrbojsk .gt_row_group_first th {
 border-top-width: 2px;
 }
-#nyyjseqngl .gt_summary_row {
+#clesrbojsk .gt_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -28179,14 +28182,14 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#nyyjseqngl .gt_first_summary_row {
+#clesrbojsk .gt_first_summary_row {
 border-top-style: solid;
 border-top-color: #D3D3D3;
 }
-#nyyjseqngl .gt_first_summary_row.thick {
+#clesrbojsk .gt_first_summary_row.thick {
 border-top-width: 2px;
 }
-#nyyjseqngl .gt_last_summary_row {
+#clesrbojsk .gt_last_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -28195,7 +28198,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#nyyjseqngl .gt_grand_summary_row {
+#clesrbojsk .gt_grand_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -28204,7 +28207,7 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#nyyjseqngl .gt_first_grand_summary_row {
+#clesrbojsk .gt_first_grand_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -28213,7 +28216,7 @@ border-top-style: double;
 border-top-width: 6px;
 border-top-color: #D3D3D3;
 }
-#nyyjseqngl .gt_last_grand_summary_row_top {
+#clesrbojsk .gt_last_grand_summary_row_top {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -28222,10 +28225,10 @@ border-bottom-style: double;
 border-bottom-width: 6px;
 border-bottom-color: #D3D3D3;
 }
-#nyyjseqngl .gt_striped {
+#clesrbojsk .gt_striped {
 background-color: rgba(128, 128, 128, 0.05);
 }
-#nyyjseqngl .gt_table_body {
+#clesrbojsk .gt_table_body {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -28233,7 +28236,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#nyyjseqngl .gt_footnotes {
+#clesrbojsk .gt_footnotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -28246,7 +28249,7 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#nyyjseqngl .gt_footnote {
+#clesrbojsk .gt_footnote {
 margin: 0px;
 font-size: 90%;
 padding-top: 4px;
@@ -28254,7 +28257,7 @@ padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#nyyjseqngl .gt_sourcenotes {
+#clesrbojsk .gt_sourcenotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -28267,64 +28270,64 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#nyyjseqngl .gt_sourcenote {
+#clesrbojsk .gt_sourcenote {
 font-size: 90%;
 padding-top: 4px;
 padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#nyyjseqngl .gt_left {
+#clesrbojsk .gt_left {
 text-align: left;
 }
-#nyyjseqngl .gt_center {
+#clesrbojsk .gt_center {
 text-align: center;
 }
-#nyyjseqngl .gt_right {
+#clesrbojsk .gt_right {
 text-align: right;
 font-variant-numeric: tabular-nums;
 }
-#nyyjseqngl .gt_font_normal {
+#clesrbojsk .gt_font_normal {
 font-weight: normal;
 }
-#nyyjseqngl .gt_font_bold {
+#clesrbojsk .gt_font_bold {
 font-weight: bold;
 }
-#nyyjseqngl .gt_font_italic {
+#clesrbojsk .gt_font_italic {
 font-style: italic;
 }
-#nyyjseqngl .gt_super {
+#clesrbojsk .gt_super {
 font-size: 65%;
 }
-#nyyjseqngl .gt_footnote_marks {
+#clesrbojsk .gt_footnote_marks {
 font-size: 75%;
 vertical-align: 0.4em;
 position: initial;
 }
-#nyyjseqngl .gt_asterisk {
+#clesrbojsk .gt_asterisk {
 font-size: 100%;
 vertical-align: 0;
 }
-#nyyjseqngl .gt_indent_1 {
+#clesrbojsk .gt_indent_1 {
 text-indent: 5px;
 }
-#nyyjseqngl .gt_indent_2 {
+#clesrbojsk .gt_indent_2 {
 text-indent: 10px;
 }
-#nyyjseqngl .gt_indent_3 {
+#clesrbojsk .gt_indent_3 {
 text-indent: 15px;
 }
-#nyyjseqngl .gt_indent_4 {
+#clesrbojsk .gt_indent_4 {
 text-indent: 20px;
 }
-#nyyjseqngl .gt_indent_5 {
+#clesrbojsk .gt_indent_5 {
 text-indent: 25px;
 }
-#nyyjseqngl .katex-display {
+#clesrbojsk .katex-display {
 display: inline-flex !important;
 margin-bottom: 0.75em !important;
 }
-#nyyjseqngl div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#clesrbojsk div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
 height: 0px !important;
 }
 </style>
@@ -28426,12 +28429,12 @@ height: 0px !important;
 Dataset (responde a los filtros)
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb15" data-startfrom="243" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 242;"><span id="cb15-243"><a href="#cb15-243" aria-hidden="true" tabindex="-1"></a>Inputs<span class="op">.</span><span class="fu">table</span>(filtrado<span class="op">,</span> {</span>
-<span id="cb15-244"><a href="#cb15-244" aria-hidden="true" tabindex="-1"></a>  <span class="dt">columns</span><span class="op">:</span> [<span class="st">&quot;student_id&quot;</span><span class="op">,</span> <span class="st">&quot;gender&quot;</span><span class="op">,</span> <span class="st">&quot;age&quot;</span><span class="op">,</span> <span class="st">&quot;study_hours_per_week&quot;</span><span class="op">,</span></span>
-<span id="cb15-245"><a href="#cb15-245" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;attendance_rate&quot;</span><span class="op">,</span> <span class="st">&quot;parent_education&quot;</span><span class="op">,</span> <span class="st">&quot;internet_access&quot;</span><span class="op">,</span></span>
-<span id="cb15-246"><a href="#cb15-246" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;extracurricular&quot;</span><span class="op">,</span> <span class="st">&quot;previous_score&quot;</span><span class="op">,</span> <span class="st">&quot;final_score&quot;</span><span class="op">,</span> <span class="st">&quot;passed&quot;</span>]<span class="op">,</span></span>
-<span id="cb15-247"><a href="#cb15-247" aria-hidden="true" tabindex="-1"></a>  <span class="dt">rows</span><span class="op">:</span> <span class="dv">15</span></span>
-<span id="cb15-248"><a href="#cb15-248" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb15" data-startfrom="246" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 245;"><span id="cb15-246"><a href="#cb15-246" aria-hidden="true" tabindex="-1"></a>Inputs<span class="op">.</span><span class="fu">table</span>(filtrado<span class="op">,</span> {</span>
+<span id="cb15-247"><a href="#cb15-247" aria-hidden="true" tabindex="-1"></a>  <span class="dt">columns</span><span class="op">:</span> [<span class="st">&quot;student_id&quot;</span><span class="op">,</span> <span class="st">&quot;gender&quot;</span><span class="op">,</span> <span class="st">&quot;age&quot;</span><span class="op">,</span> <span class="st">&quot;study_hours_per_week&quot;</span><span class="op">,</span></span>
+<span id="cb15-248"><a href="#cb15-248" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;attendance_rate&quot;</span><span class="op">,</span> <span class="st">&quot;parent_education&quot;</span><span class="op">,</span> <span class="st">&quot;internet_access&quot;</span><span class="op">,</span></span>
+<span id="cb15-249"><a href="#cb15-249" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;extracurricular&quot;</span><span class="op">,</span> <span class="st">&quot;previous_score&quot;</span><span class="op">,</span> <span class="st">&quot;final_score&quot;</span><span class="op">,</span> <span class="st">&quot;passed&quot;</span>]<span class="op">,</span></span>
+<span id="cb15-250"><a href="#cb15-250" aria-hidden="true" tabindex="-1"></a>  <span class="dt">rows</span><span class="op">:</span> <span class="dv">15</span></span>
+<span id="cb15-251"><a href="#cb15-251" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display html-fill-item html-fill-container">
 <div id="ojs-cell-15" data-nodetype="expression" class="html-fill-item html-fill-container">
 
@@ -28529,7 +28532,7 @@ bslib.Sidebar.initCollapsibleAll()
 
 
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImRhdGEgPSB0cmFuc3Bvc2UoZGF0b3MpXG5cbm1lZGlhID0gKGFyciwgZikgPT4gYXJyLmxlbmd0aCA/IGFyci5yZWR1Y2UoKHMsIGQpID0+IHMgKyBmKGQpLCAwKSAvIGFyci5sZW5ndGggOiBOYU5cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBnZW5lcm8gPSBJbnB1dHMuY2hlY2tib3goW1wiRmVtYWxlXCIsIFwiTWFsZVwiXSxcbiAge2xhYmVsOiBcIkfDqW5lcm9cIiwgdmFsdWU6IFtcIkZlbWFsZVwiLCBcIk1hbGVcIl19KVxuXG52aWV3b2YgaW50ZXJuZXQgPSBJbnB1dHMuY2hlY2tib3goW1wiWWVzXCIsIFwiTm9cIl0sXG4gIHtsYWJlbDogXCJBY2Nlc28gYSBpbnRlcm5ldFwiLCB2YWx1ZTogW1wiWWVzXCIsIFwiTm9cIl19KVxuXG52aWV3b2YgZXh0cmEgPSBJbnB1dHMuY2hlY2tib3goW1wiWWVzXCIsIFwiTm9cIl0sXG4gIHtsYWJlbDogXCJFeHRyYWVzY29sYXJlc1wiLCB2YWx1ZTogW1wiWWVzXCIsIFwiTm9cIl19KVxuXG52aWV3b2YgZWR1YyA9IElucHV0cy5jaGVja2JveChuaXZlbGVzLFxuICB7bGFiZWw6IFwiRWR1Y2FjacOzbiBkZSBsb3MgcGFkcmVzXCIsIHZhbHVlOiBuaXZlbGVzfSlcblxudmlld29mIGFzaXN0X21pbiA9IElucHV0cy5yYW5nZShyYW5nb19hLFxuICB7bGFiZWw6IFwiQXNpc3RlbmNpYSBtw61uaW1hICglKVwiLCBzdGVwOiAxLCB2YWx1ZTogcmFuZ29fYVswXX0pXG5cbmZpbHRyYWRvID0gZGF0YS5maWx0ZXIoZCA9PlxuICBnZW5lcm8uaW5jbHVkZXMoZC5nZW5kZXIpICYmXG4gIGludGVybmV0LmluY2x1ZGVzKGQuaW50ZXJuZXRfYWNjZXNzKSAmJlxuICBleHRyYS5pbmNsdWRlcyhkLmV4dHJhY3VycmljdWxhcikgJiZcbiAgZWR1Yy5pbmNsdWRlcyhkLnBhcmVudF9lZHVjYXRpb24pICYmXG4gIGQuYXR0ZW5kYW5jZV9yYXRlID49IGFzaXN0X21pblxuKVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0zIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiZmlsdHJhZG8/Lmxlbmd0aCA/PyAwXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTQiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJmaWx0cmFkbyAmJiBmaWx0cmFkby5sZW5ndGggPiAwID8gbWVkaWEoZmlsdHJhZG8sIGQgPT4gZC5maW5hbF9zY29yZSkudG9GaXhlZCgxKSA6IDBcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Iih7Y29sb3I6IFwiI2UzZjRlZlwiLFxuICB2YWx1ZTogKDEwMCAqIG1lZGlhKGZpbHRyYWRvLCBkID0+IGQucGFzc2VkID09PSBcIlllc1wiID8gMSA6IDApKS50b0ZpeGVkKDEpICsgXCIlXCJ9KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC02IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiKHtjb2xvcjogXCIjZThmMGY4XCIsXG4gIHZhbHVlOiBtZWRpYShmaWx0cmFkbywgZCA9PiBkLmF0dGVuZGFuY2VfcmF0ZSkudG9GaXhlZCgxKSArIFwiJVwifSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Iih7Y29sb3I6IFwiI2U4ZjBmOFwiLFxuICB2YWx1ZTogbWVkaWEoZmlsdHJhZG8sIGQgPT4gZC5zdHVkeV9ob3Vyc19wZXJfd2VlaykudG9GaXhlZCgxKX0pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTgiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJQbG90LnBsb3Qoe1xuICB4OiB7bGFiZWw6IFwiTm90YSBmaW5hbFwifSxcbiAgeToge2xhYmVsOiBcIkZyZWN1ZW5jaWFcIiwgZ3JpZDogdHJ1ZX0sXG4gIG1hcmtzOiBbXG4gICAgUGxvdC5yZWN0WShmaWx0cmFkbywgUGxvdC5iaW5YKHt5OiBcImNvdW50XCJ9LFxuICAgICAge3g6IFwiZmluYWxfc2NvcmVcIiwgdGhyZXNob2xkczogMjUsIGZpbGw6IFwic3RlZWxibHVlXCJ9KSksXG4gICAgUGxvdC5ydWxlWShbMF0pXG4gIF1cbn0pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTkiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJQbG90LnBsb3Qoe1xuICBtYXJnaW5MZWZ0OiA5MCxcbiAgeDoge2xhYmVsOiBcIiUgZGUgZXN0dWRpYW50ZXNcIiwgcGVyY2VudDogdHJ1ZSwgZ3JpZDogdHJ1ZX0sXG4gIHk6IHtsYWJlbDogbnVsbH0sXG4gIGNvbG9yOiB7ZG9tYWluOiBbXCJZZXNcIiwgXCJOb1wiXSwgcmFuZ2U6IFtcIiMyYTlkOGZcIiwgXCIjZTc2ZjUxXCJdLFxuICAgICAgICAgIGxlZ2VuZDogdHJ1ZSwgbGFiZWw6IG51bGx9LFxuICBtYXJrczogW1xuICAgIFBsb3QuYmFyWChmaWx0cmFkbywgUGxvdC5ncm91cFkoe3g6IFwiY291bnRcIn0sXG4gICAgICB7eTogXCJwYXJlbnRfZWR1Y2F0aW9uXCIsIGZpbGw6IFwicGFzc2VkXCIsIG9mZnNldDogXCJub3JtYWxpemVcIiwgdGlwOiB0cnVlfSkpLFxuICAgIFBsb3QucnVsZVgoWzBdKVxuICBdXG59KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0xMCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlBsb3QucGxvdCh7XG4gIHg6IHtsYWJlbDogXCJIb3JhcyBkZSBlc3R1ZGlvIHBvciBzZW1hbmFcIn0sXG4gIHk6IHtsYWJlbDogXCJOb3RhIGZpbmFsXCIsIGdyaWQ6IHRydWV9LFxuICBjb2xvcjoge2RvbWFpbjogW1wiTm9cIiwgXCJZZXNcIl0sIHJhbmdlOiBbXCIjZTc2ZjUxXCIsIFwiIzJhOWQ4ZlwiXSxcbiAgICAgICAgICBsZWdlbmQ6IHRydWUsIGxhYmVsOiBcIkFwcm9iw7NcIn0sXG4gIG1hcmtzOiBbXG4gICAgUGxvdC5kb3QoZmlsdHJhZG8sIHt4OiBcInN0dWR5X2hvdXJzX3Blcl93ZWVrXCIsIHk6IFwiZmluYWxfc2NvcmVcIixcbiAgICAgIHN0cm9rZTogXCJwYXNzZWRcIiwgcjogMywgZmlsbE9wYWNpdHk6IDAuNCxcbiAgICAgIHRpdGxlOiBkID0+IGBJRDogJHtkLnN0dWRlbnRfaWR9YCwgdGlwOiB0cnVlfSlcbiAgXVxufSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMTEiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJQbG90LnBsb3Qoe1xuICB4OiB7bGFiZWw6IFwiTm90YSBhbnRlcmlvclwifSxcbiAgeToge2xhYmVsOiBcIk5vdGEgZmluYWxcIiwgZ3JpZDogdHJ1ZX0sXG4gIG1hcmtzOiBbXG4gICAgUGxvdC5kb3QoZmlsdHJhZG8sIHt4OiBcInByZXZpb3VzX3Njb3JlXCIsIHk6IFwiZmluYWxfc2NvcmVcIixcbiAgICAgIGZpbGw6IFwic3RlZWxibHVlXCIsIGZpbGxPcGFjaXR5OiAwLjUsIHI6IDMsIHRpcDogdHJ1ZX0pLFxuICAgIFBsb3QubGluZWFyUmVncmVzc2lvblkoZmlsdHJhZG8sIHt4OiBcInByZXZpb3VzX3Njb3JlXCIsIHk6IFwiZmluYWxfc2NvcmVcIixcbiAgICAgIHN0cm9rZTogXCIjZTc2ZjUxXCJ9KVxuICBdXG59KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0xMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlBsb3QucGxvdCh7XG4gIHg6IHtsYWJlbDogXCJBY2Nlc28gYSBpbnRlcm5ldFwifSxcbiAgeToge2xhYmVsOiBcIk5vdGEgZmluYWxcIiwgZ3JpZDogdHJ1ZX0sXG4gIG1hcmtzOiBbUGxvdC5ib3hZKGZpbHRyYWRvLCB7eDogXCJpbnRlcm5ldF9hY2Nlc3NcIiwgeTogXCJmaW5hbF9zY29yZVwiLFxuICAgIGZpbGw6IFwiaW50ZXJuZXRfYWNjZXNzXCJ9KV1cbn0pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTEzIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiUGxvdC5wbG90KHtcbiAgeDoge2xhYmVsOiBcIkFjdGl2aWRhZGVzIGV4dHJhZXNjb2xhcmVzXCJ9LFxuICB5OiB7bGFiZWw6IFwiTm90YSBmaW5hbFwiLCBncmlkOiB0cnVlfSxcbiAgbWFya3M6IFtQbG90LmJveFkoZmlsdHJhZG8sIHt4OiBcImV4dHJhY3VycmljdWxhclwiLCB5OiBcImZpbmFsX3Njb3JlXCIsXG4gICAgZmlsbDogXCJleHRyYWN1cnJpY3VsYXJcIn0pXVxufSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMTQiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJQbG90LnBsb3Qoe1xuICB4OiB7bGFiZWw6IFwiSG9yYXMgZGUgZXN0dWRpbyBwb3Igc2VtYW5hXCJ9LFxuICB5OiB7bGFiZWw6IFwiRnJlY3VlbmNpYSBhYnNvbHV0YVwiLCBncmlkOiB0cnVlfSxcbiAgbWFya3M6IFtcbiAgICBQbG90LnJlY3RZKGZpbHRyYWRvLCBQbG90LmJpblgoe3k6IFwiY291bnRcIn0sXG4gICAgICB7eDogXCJzdHVkeV9ob3Vyc19wZXJfd2Vla1wiLCB0aHJlc2hvbGRzOiA4LCBmaWxsOiBcInN0ZWVsYmx1ZVwifSkpLFxuICAgIFBsb3QucnVsZVkoWzBdKVxuICBdXG59KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0xNSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IklucHV0cy50YWJsZShmaWx0cmFkbywge1xuICBjb2x1bW5zOiBbXCJzdHVkZW50X2lkXCIsIFwiZ2VuZGVyXCIsIFwiYWdlXCIsIFwic3R1ZHlfaG91cnNfcGVyX3dlZWtcIixcbiAgICAgICAgICAgIFwiYXR0ZW5kYW5jZV9yYXRlXCIsIFwicGFyZW50X2VkdWNhdGlvblwiLCBcImludGVybmV0X2FjY2Vzc1wiLFxuICAgICAgICAgICAgXCJleHRyYWN1cnJpY3VsYXJcIiwgXCJwcmV2aW91c19zY29yZVwiLCBcImZpbmFsX3Njb3JlXCIsIFwicGFzc2VkXCJdLFxuICByb3dzOiAxNVxufSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnZ2VuZXJvJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2ludGVybmV0JykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2V4dHJhJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2VkdWMnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnYXNpc3RfbWluJykifV19
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImRhdGEgPSB0cmFuc3Bvc2UoZGF0b3MpXG5cbm1lZGlhID0gKGFyciwgZikgPT4gYXJyLmxlbmd0aCA/IGFyci5yZWR1Y2UoKHMsIGQpID0+IHMgKyBmKGQpLCAwKSAvIGFyci5sZW5ndGggOiBOYU5cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBnZW5lcm8gPSBJbnB1dHMuY2hlY2tib3goW1wiRmVtYWxlXCIsIFwiTWFsZVwiXSxcbiAge2xhYmVsOiBcIkfDqW5lcm9cIiwgdmFsdWU6IFtcIkZlbWFsZVwiLCBcIk1hbGVcIl19KVxuXG52aWV3b2YgaW50ZXJuZXQgPSBJbnB1dHMuY2hlY2tib3goW1wiWWVzXCIsIFwiTm9cIl0sXG4gIHtsYWJlbDogXCJBY2Nlc28gYSBpbnRlcm5ldFwiLCB2YWx1ZTogW1wiWWVzXCIsIFwiTm9cIl19KVxuXG52aWV3b2YgZXh0cmEgPSBJbnB1dHMuY2hlY2tib3goW1wiWWVzXCIsIFwiTm9cIl0sXG4gIHtsYWJlbDogXCJFeHRyYWVzY29sYXJlc1wiLCB2YWx1ZTogW1wiWWVzXCIsIFwiTm9cIl19KVxuXG52aWV3b2YgZWR1YyA9IElucHV0cy5jaGVja2JveChuaXZlbGVzLFxuICB7bGFiZWw6IFwiRWR1Y2FjacOzbiBkZSBsb3MgcGFkcmVzXCIsIHZhbHVlOiBuaXZlbGVzfSlcblxudmlld29mIGFzaXN0X21pbiA9IElucHV0cy5yYW5nZShyYW5nb19hLFxuICB7bGFiZWw6IFwiQXNpc3RlbmNpYSBtw61uaW1hICglKVwiLCBzdGVwOiAxLCB2YWx1ZTogcmFuZ29fYVswXX0pXG5cbmZpbHRyYWRvID0gZGF0YS5maWx0ZXIoZCA9PlxuICBnZW5lcm8uaW5jbHVkZXMoZC5nZW5kZXIpICYmXG4gIGludGVybmV0LmluY2x1ZGVzKGQuaW50ZXJuZXRfYWNjZXNzKSAmJlxuICBleHRyYS5pbmNsdWRlcyhkLmV4dHJhY3VycmljdWxhcikgJiZcbiAgZWR1Yy5pbmNsdWRlcyhkLnBhcmVudF9lZHVjYXRpb24pICYmXG4gIGQuYXR0ZW5kYW5jZV9yYXRlID49IGFzaXN0X21pblxuKVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0zIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiZmlsdHJhZG8/Lmxlbmd0aCA/PyAwXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTQiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJgJHtmaWx0cmFkbyAmJiBmaWx0cmFkby5sZW5ndGggPiAwID8gbWVkaWEoZmlsdHJhZG8sIGQgPT4gZC5maW5hbF9zY29yZSkudG9GaXhlZCgxKSA6IDB9YFxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC01IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiYCR7ZmlsdHJhZG8gJiYgZmlsdHJhZG8ubGVuZ3RoID4gMCA/IE1hdGgucm91bmQoMTAwICogbWVkaWEoZmlsdHJhZG8sIGQgPT4gZC5maW5hbF9zY29yZSA+PSA2MCkpICsgXCIgJVwiIDogXCIwICVcIn1gXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTYiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiIoe1xuICBjb2xvcjogXCIjZThmMGY4XCIsXG4gIHZhbHVlOiBmaWx0cmFkbyAmJiBmaWx0cmFkby5sZW5ndGggPiAwID8gbWVkaWEoZmlsdHJhZG8sIGQgPT4gZC5hdHRlbmRhbmNlX3JhdGUpLnRvRml4ZWQoMSkgKyBcIiVcIiA6IFwiMCVcIlxufSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Iih7XG4gIGNvbG9yOiBcIiNlOGYwZjhcIixcbiAgdmFsdWU6IGZpbHRyYWRvICYmIGZpbHRyYWRvLmxlbmd0aCA+IDAgPyBtZWRpYShmaWx0cmFkbywgZCA9PiBkLnN0dWR5X2hvdXJzX3Blcl93ZWVrKS50b0ZpeGVkKDEpIDogXCIwXCJcbn0pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTgiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJQbG90LnBsb3Qoe1xuICB4OiB7bGFiZWw6IFwiTm90YSBmaW5hbFwifSxcbiAgeToge2xhYmVsOiBcIkZyZWN1ZW5jaWFcIiwgZ3JpZDogdHJ1ZX0sXG4gIG1hcmtzOiBbXG4gICAgUGxvdC5yZWN0WShmaWx0cmFkbywgUGxvdC5iaW5YKHt5OiBcImNvdW50XCJ9LFxuICAgICAge3g6IFwiZmluYWxfc2NvcmVcIiwgdGhyZXNob2xkczogMjUsIGZpbGw6IFwic3RlZWxibHVlXCJ9KSksXG4gICAgUGxvdC5ydWxlWShbMF0pXG4gIF1cbn0pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTkiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJQbG90LnBsb3Qoe1xuICBtYXJnaW5MZWZ0OiA5MCxcbiAgeDoge2xhYmVsOiBcIiUgZGUgZXN0dWRpYW50ZXNcIiwgcGVyY2VudDogdHJ1ZSwgZ3JpZDogdHJ1ZX0sXG4gIHk6IHtsYWJlbDogbnVsbH0sXG4gIGNvbG9yOiB7ZG9tYWluOiBbXCJZZXNcIiwgXCJOb1wiXSwgcmFuZ2U6IFtcIiMyYTlkOGZcIiwgXCIjZTc2ZjUxXCJdLFxuICAgICAgICAgIGxlZ2VuZDogdHJ1ZSwgbGFiZWw6IG51bGx9LFxuICBtYXJrczogW1xuICAgIFBsb3QuYmFyWChmaWx0cmFkbywgUGxvdC5ncm91cFkoe3g6IFwiY291bnRcIn0sXG4gICAgICB7eTogXCJwYXJlbnRfZWR1Y2F0aW9uXCIsIGZpbGw6IFwicGFzc2VkXCIsIG9mZnNldDogXCJub3JtYWxpemVcIiwgdGlwOiB0cnVlfSkpLFxuICAgIFBsb3QucnVsZVgoWzBdKVxuICBdXG59KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0xMCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlBsb3QucGxvdCh7XG4gIHg6IHtsYWJlbDogXCJIb3JhcyBkZSBlc3R1ZGlvIHBvciBzZW1hbmFcIn0sXG4gIHk6IHtsYWJlbDogXCJOb3RhIGZpbmFsXCIsIGdyaWQ6IHRydWV9LFxuICBjb2xvcjoge2RvbWFpbjogW1wiTm9cIiwgXCJZZXNcIl0sIHJhbmdlOiBbXCIjZTc2ZjUxXCIsIFwiIzJhOWQ4ZlwiXSxcbiAgICAgICAgICBsZWdlbmQ6IHRydWUsIGxhYmVsOiBcIkFwcm9iw7NcIn0sXG4gIG1hcmtzOiBbXG4gICAgUGxvdC5kb3QoZmlsdHJhZG8sIHt4OiBcInN0dWR5X2hvdXJzX3Blcl93ZWVrXCIsIHk6IFwiZmluYWxfc2NvcmVcIixcbiAgICAgIHN0cm9rZTogXCJwYXNzZWRcIiwgcjogMywgZmlsbE9wYWNpdHk6IDAuNCxcbiAgICAgIHRpdGxlOiBkID0+IGBJRDogJHtkLnN0dWRlbnRfaWR9YCwgdGlwOiB0cnVlfSlcbiAgXVxufSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMTEiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJQbG90LnBsb3Qoe1xuICB4OiB7bGFiZWw6IFwiTm90YSBhbnRlcmlvclwifSxcbiAgeToge2xhYmVsOiBcIk5vdGEgZmluYWxcIiwgZ3JpZDogdHJ1ZX0sXG4gIG1hcmtzOiBbXG4gICAgUGxvdC5kb3QoZmlsdHJhZG8sIHt4OiBcInByZXZpb3VzX3Njb3JlXCIsIHk6IFwiZmluYWxfc2NvcmVcIixcbiAgICAgIGZpbGw6IFwic3RlZWxibHVlXCIsIGZpbGxPcGFjaXR5OiAwLjUsIHI6IDMsIHRpcDogdHJ1ZX0pLFxuICAgIFBsb3QubGluZWFyUmVncmVzc2lvblkoZmlsdHJhZG8sIHt4OiBcInByZXZpb3VzX3Njb3JlXCIsIHk6IFwiZmluYWxfc2NvcmVcIixcbiAgICAgIHN0cm9rZTogXCIjZTc2ZjUxXCJ9KVxuICBdXG59KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0xMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlBsb3QucGxvdCh7XG4gIHg6IHtsYWJlbDogXCJBY2Nlc28gYSBpbnRlcm5ldFwifSxcbiAgeToge2xhYmVsOiBcIk5vdGEgZmluYWxcIiwgZ3JpZDogdHJ1ZX0sXG4gIG1hcmtzOiBbUGxvdC5ib3hZKGZpbHRyYWRvLCB7eDogXCJpbnRlcm5ldF9hY2Nlc3NcIiwgeTogXCJmaW5hbF9zY29yZVwiLFxuICAgIGZpbGw6IFwiaW50ZXJuZXRfYWNjZXNzXCJ9KV1cbn0pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTEzIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiUGxvdC5wbG90KHtcbiAgeDoge2xhYmVsOiBcIkFjdGl2aWRhZGVzIGV4dHJhZXNjb2xhcmVzXCJ9LFxuICB5OiB7bGFiZWw6IFwiTm90YSBmaW5hbFwiLCBncmlkOiB0cnVlfSxcbiAgbWFya3M6IFtQbG90LmJveFkoZmlsdHJhZG8sIHt4OiBcImV4dHJhY3VycmljdWxhclwiLCB5OiBcImZpbmFsX3Njb3JlXCIsXG4gICAgZmlsbDogXCJleHRyYWN1cnJpY3VsYXJcIn0pXVxufSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMTQiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJQbG90LnBsb3Qoe1xuICB4OiB7bGFiZWw6IFwiSG9yYXMgZGUgZXN0dWRpbyBwb3Igc2VtYW5hXCJ9LFxuICB5OiB7bGFiZWw6IFwiRnJlY3VlbmNpYSBhYnNvbHV0YVwiLCBncmlkOiB0cnVlfSxcbiAgbWFya3M6IFtcbiAgICBQbG90LnJlY3RZKGZpbHRyYWRvLCBQbG90LmJpblgoe3k6IFwiY291bnRcIn0sXG4gICAgICB7eDogXCJzdHVkeV9ob3Vyc19wZXJfd2Vla1wiLCB0aHJlc2hvbGRzOiA4LCBmaWxsOiBcInN0ZWVsYmx1ZVwifSkpLFxuICAgIFBsb3QucnVsZVkoWzBdKVxuICBdXG59KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0xNSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IklucHV0cy50YWJsZShmaWx0cmFkbywge1xuICBjb2x1bW5zOiBbXCJzdHVkZW50X2lkXCIsIFwiZ2VuZGVyXCIsIFwiYWdlXCIsIFwic3R1ZHlfaG91cnNfcGVyX3dlZWtcIixcbiAgICAgICAgICAgIFwiYXR0ZW5kYW5jZV9yYXRlXCIsIFwicGFyZW50X2VkdWNhdGlvblwiLCBcImludGVybmV0X2FjY2Vzc1wiLFxuICAgICAgICAgICAgXCJleHRyYWN1cnJpY3VsYXJcIiwgXCJwcmV2aW91c19zY29yZVwiLCBcImZpbmFsX3Njb3JlXCIsIFwicGFzc2VkXCJdLFxuICByb3dzOiAxNVxufSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnZ2VuZXJvJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2ludGVybmV0JykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2V4dHJhJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2VkdWMnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnYXNpc3RfbWluJykifV19
 </script>
 <script type="module">
 window._ojs.runtime.setLocalResolver({});
