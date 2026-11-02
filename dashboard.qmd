@@ -1,0 +1,250 @@
+---
+title: "Rendimiento Estudiantil"
+subtitle: "TP Transversal - Moreno Cecilia / Patiri Sabrina"
+format:
+  dashboard:
+    theme: cosmo
+    nav-buttons:
+      - icon: github
+        href: https://github.com/TUUSUARIO/TUREPO
+lang: es
+---
+
+```{r}
+#| label: setup
+#| include: false
+library(tidyverse)
+library(gt)
+library(e1071)
+
+# Ajustar la ruta si el CSV está en otra carpeta
+df <- read_delim("dataset.csv", delim = ";", show_col_types = FALSE)
+
+# Se pasa el dataset a Observable JS (los filtros del sidebar trabajan sobre esto)
+ojs_define(
+  datos   = df,
+  niveles = sort(unique(df$parent_education)),
+  rango_a = range(df$attendance_rate)
+)
+```
+
+```{ojs}
+//| output: false
+data = transpose(datos)
+
+media = (arr, f) => arr.length ? arr.reduce((s, d) => s + f(d), 0) / arr.length : NaN
+```
+
+# {.sidebar}
+
+**Filtros**
+
+```{ojs}
+viewof genero = Inputs.checkbox(["Female", "Male"],
+  {label: "Género", value: ["Female", "Male"]})
+
+viewof internet = Inputs.checkbox(["Yes", "No"],
+  {label: "Acceso a internet", value: ["Yes", "No"]})
+
+viewof extra = Inputs.checkbox(["Yes", "No"],
+  {label: "Extraescolares", value: ["Yes", "No"]})
+
+viewof educ = Inputs.checkbox(niveles,
+  {label: "Educación de los padres", value: niveles})
+
+viewof asist_min = Inputs.range(rango_a,
+  {label: "Asistencia mínima (%)", step: 1, value: rango_a[0]})
+
+filtrado = data.filter(d =>
+  genero.includes(d.gender) &&
+  internet.includes(d.internet_access) &&
+  extra.includes(d.extracurricular) &&
+  educ.includes(d.parent_education) &&
+  d.attendance_rate >= asist_min
+)
+```
+
+# Resumen
+
+## Row {height=20%}
+
+```{ojs}
+//| content: valuebox
+//| title: "Estudiantes"
+({color: "#e8f0f8", value: filtrado.length})
+```
+
+```{ojs}
+//| content: valuebox
+//| title: "Nota final promedio"
+({color: "#e8f0f8",
+  value: media(filtrado, d => d.final_score).toFixed(1)})
+```
+
+```{ojs}
+//| content: valuebox
+//| title: "% de aprobados"
+({color: "#e3f4ef",
+  value: (100 * media(filtrado, d => d.passed === "Yes" ? 1 : 0)).toFixed(1) + "%"})
+```
+
+```{ojs}
+//| content: valuebox
+//| title: "Asistencia promedio"
+({color: "#e8f0f8",
+  value: media(filtrado, d => d.attendance_rate).toFixed(1) + "%"})
+```
+
+```{ojs}
+//| content: valuebox
+//| title: "Horas de estudio / semana"
+({color: "#e8f0f8",
+  value: media(filtrado, d => d.study_hours_per_week).toFixed(1)})
+```
+
+## Row {height=80%}
+
+```{ojs}
+//| title: ¿Dónde se concentran las notas finales?
+Plot.plot({
+  x: {label: "Nota final"},
+  y: {label: "Frecuencia", grid: true},
+  marks: [
+    Plot.rectY(filtrado, Plot.binX({y: "count"},
+      {x: "final_score", thresholds: 25, fill: "steelblue"})),
+    Plot.ruleY([0])
+  ]
+})
+```
+
+```{ojs}
+//| title: ¿Influye el nivel educativo de los padres?
+Plot.plot({
+  marginLeft: 90,
+  x: {label: "% de estudiantes", percent: true, grid: true},
+  y: {label: null},
+  color: {domain: ["Yes", "No"], range: ["#2a9d8f", "#e76f51"],
+          legend: true, label: null},
+  marks: [
+    Plot.barX(filtrado, Plot.groupY({x: "count"},
+      {y: "parent_education", fill: "passed", offset: "normalize", tip: true})),
+    Plot.ruleX([0])
+  ]
+})
+```
+
+# Relaciones
+
+## Column {width=60%}
+
+```{ojs}
+//| title: ¿Estudiar más sube la nota?
+Plot.plot({
+  x: {label: "Horas de estudio por semana"},
+  y: {label: "Nota final", grid: true},
+  color: {domain: ["No", "Yes"], range: ["#e76f51", "#2a9d8f"],
+          legend: true, label: "Aprobó"},
+  marks: [
+    Plot.dot(filtrado, {x: "study_hours_per_week", y: "final_score",
+      stroke: "passed", r: 3, fillOpacity: 0.4,
+      title: d => `ID: ${d.student_id}`, tip: true})
+  ]
+})
+```
+
+```{ojs}
+//| title: ¿La nota anterior anticipa la final?
+Plot.plot({
+  x: {label: "Nota anterior"},
+  y: {label: "Nota final", grid: true},
+  marks: [
+    Plot.dot(filtrado, {x: "previous_score", y: "final_score",
+      fill: "steelblue", fillOpacity: 0.5, r: 3, tip: true}),
+    Plot.linearRegressionY(filtrado, {x: "previous_score", y: "final_score",
+      stroke: "#e76f51"})
+  ]
+})
+```
+
+## Column {width=40%}
+
+```{ojs}
+//| title: ¿Internet marca diferencia?
+Plot.plot({
+  x: {label: "Acceso a internet"},
+  y: {label: "Nota final", grid: true},
+  marks: [Plot.boxY(filtrado, {x: "internet_access", y: "final_score",
+    fill: "internet_access"})]
+})
+```
+
+```{ojs}
+//| title: ¿Y las actividades extraescolares?
+Plot.plot({
+  x: {label: "Actividades extraescolares"},
+  y: {label: "Nota final", grid: true},
+  marks: [Plot.boxY(filtrado, {x: "extracurricular", y: "final_score",
+    fill: "extracurricular"})]
+})
+```
+
+# Horas de estudio
+
+## Column {width=55%}
+
+```{ojs}
+//| title: Histograma con intervalos de clase (responde a los filtros)
+Plot.plot({
+  x: {label: "Horas de estudio por semana"},
+  y: {label: "Frecuencia absoluta", grid: true},
+  marks: [
+    Plot.rectY(filtrado, Plot.binX({y: "count"},
+      {x: "study_hours_per_week", thresholds: 8, fill: "steelblue"})),
+    Plot.ruleY([0])
+  ]
+})
+```
+
+## Column {width=45%}
+
+```{r}
+#| title: Tabla de frecuencias (dataset completo, TP1)
+breaks <- seq(min(df$study_hours_per_week), max(df$study_hours_per_week),
+              length.out = 9)
+
+df |>
+  mutate(intervalo = cut(study_hours_per_week, breaks = breaks,
+                         include.lowest = TRUE)) |>
+  count(intervalo, name = "frec_abs") |>
+  mutate(
+    frec_rel  = frec_abs / sum(frec_abs),
+    frec_porc = frec_rel * 100,
+    frec_acum = cumsum(frec_abs)
+  ) |>
+  gt() |>
+  fmt_number(c(frec_rel, frec_porc), decimals = 2) |>
+  cols_label(intervalo = "Intervalo", frec_abs = "Frec. abs.",
+             frec_rel = "Frec. rel.", frec_porc = "%",
+             frec_acum = "Frec. acum.")
+```
+
+```{r}
+#| title: Interpretación
+asim     <- round(skewness(df$study_hours_per_week), 2)
+amplitud <- round(breaks[2] - breaks[1], 1)
+```
+
+Amplitud de clase: **`{r} amplitud` horas**. Asimetría: **`{r} asim`**.
+Al ser un valor cercano a 0, la distribución es aproximadamente simétrica.
+
+# Datos
+
+```{ojs}
+//| title: Dataset (responde a los filtros)
+Inputs.table(filtrado, {
+  columns: ["student_id", "gender", "age", "study_hours_per_week",
+            "attendance_rate", "parent_education", "internet_access",
+            "extracurricular", "previous_score", "final_score", "passed"],
+  rows: 15
+})
+```

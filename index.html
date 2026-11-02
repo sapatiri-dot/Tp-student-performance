@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Rendimiento Estudiantil</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="dashboard_files/libs/clipboard/clipboard.min.js"></script>
+<script src="dashboard_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="dashboard_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="dashboard_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="dashboard_files/libs/quarto-html/popper.min.js"></script>
+<script src="dashboard_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="dashboard_files/libs/quarto-html/anchor.min.js"></script>
+<link href="dashboard_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="dashboard_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="dashboard_files/libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="dashboard_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="dashboard_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="dashboard_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="dashboard_files/libs/bootstrap/bootstrap-84c8d5c2e34268ee538ea9617045fb67.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="dashboard_files/libs/bootstrap/bootstrap-dark-84c8d5c2e34268ee538ea9617045fb67.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="dashboard_files/libs/bootstrap/bootstrap-84c8d5c2e34268ee538ea9617045fb67.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="dashboard_files/libs/quarto-dashboard/quarto-dashboard.js"></script>
+<script src="dashboard_files/libs/quarto-dashboard/stickythead.js"></script>
+
+
+
+<script src="dashboard_files/libs/quarto-dashboard/web-components.js" type="module"></script>
+<script src="dashboard_files/libs/quarto-dashboard/components.js"></script>
+
+<script type="module" src="dashboard_files/libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="dashboard_files/libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+<script type="ojs-define">
+
+{"contents":[{"name":"datos","value":{"student_id":["STU0001","STU0002","STU0003","STU0004","STU0005","STU0006","STU0007","STU0008","STU0009","STU0010","STU0011","STU0012","STU0013","STU0014","STU0015","STU0016","STU0017","STU0018","STU0019","STU0020","STU0021","STU0022","STU0023","STU0024","STU0025","STU0026","STU0027","STU0028","STU0029","STU0030","STU0031","STU0032","STU0033","STU0034","STU0035","STU0036","STU0037","STU0038","STU0039","STU0040","STU0041","STU0042","STU0043","STU0044","STU0045","STU0046","STU0047","STU0048","STU0049","STU0050","STU0051","STU0052","STU0053","STU0054","STU0055","STU0056","STU0057","STU0058","STU0059","STU0060","STU0061","STU0062","STU0063","STU0064","STU0065","STU0066","STU0067","STU0068","STU0069","STU0070","STU0071","STU0072","STU0073","STU0074","STU0075","STU0076","STU0077","STU0078","STU0079","STU0080","STU0081","STU0082","STU0083","STU0084","STU0085","STU0086","STU0087","STU0088","STU0089","STU0090","STU0091","STU0092","STU0093","STU0094","STU0095","STU0096","STU0097","STU0098","STU0099","STU0100","STU0101","STU0102","STU0103","STU0104","STU0105","STU0106","STU0107","STU0108","STU0109","STU0110","STU0111","STU0112","STU0113","STU0114","STU0115","STU0116","STU0117","STU0118","STU0119","STU0120","STU0121","STU0122","STU0123","STU0124","STU0125","STU0126","STU0127","STU0128","STU0129","STU0130","STU0131","STU0132","STU0133","STU0134","STU0135","STU0136","STU0137","STU0138","STU0139","STU0140","STU0141","STU0142","STU0143","STU0144","STU0145","STU0146","STU0147","STU0148","STU0149","STU0150","STU0151","STU0152","STU0153","STU0154","STU0155","STU0156","STU0157","STU0158","STU0159","STU0160","STU0161","STU0162","STU0163","STU0164","STU0165","STU0166","STU0167","STU0168","STU0169","STU0170","STU0171","STU0172","STU0173","STU0174","STU0175","STU0176","STU0177","STU0178","STU0179","STU0180","STU0181","STU0182","STU0183","STU0184","STU0185","STU0186","STU0187","STU0188","STU0189","STU0190","STU0191","STU0192","STU0193","STU0194","STU0195","STU0196","STU0197","STU0198","STU0199","STU0200","STU0201","STU0202","STU0203","STU0204","STU0205","STU0206","STU0207","STU0208","STU0209","STU0210","STU0211","STU0212","STU0213","STU0214","STU0215","STU0216","STU0217","STU0218","STU0219","STU0220","STU0221","STU0222","STU0223","STU0224","STU0225","STU0226","STU0227","STU0228","STU0229","STU0230","STU0231","STU0232","STU0233","STU0234","STU0235","STU0236","STU0237","STU0238","STU0239","STU0240","STU0241","STU0242","STU0243","STU0244","STU0245","STU0246","STU0247","STU0248","STU0249","STU0250","STU0251","STU0252","STU0253","STU0254","STU0255","STU0256","STU0257","STU0258","STU0259","STU0260","STU0261","STU0262","STU0263","STU0264","STU0265","STU0266","STU0267","STU0268","STU0269","STU0270","STU0271","STU0272","STU0273","STU0274","STU0275","STU0276","STU0277","STU0278","STU0279","STU0280","STU0281","STU0282","STU0283","STU0284","STU0285","STU0286","STU0287","STU0288","STU0289","STU0290","STU0291","STU0292","STU0293","STU0294","STU0295","STU0296","STU0297","STU0298","STU0299","STU0300","STU0301","STU0302","STU0303","STU0304","STU0305","STU0306","STU0307","STU0308","STU0309","STU0310","STU0311","STU0312","STU0313","STU0314","STU0315","STU0316","STU0317","STU0318","STU0319","STU0320","STU0321","STU0322","STU0323","STU0324","STU0325","STU0326","STU0327","STU0328","STU0329","STU0330","STU0331","STU0332","STU0333","STU0334","STU0335","STU0336","STU0337","STU0338","STU0339","STU0340","STU0341","STU0342","STU0343","STU0344","STU0345","STU0346","STU0347","STU0348","STU0349","STU0350","STU0351","STU0352","STU0353","STU0354","STU0355","STU0356","STU0357","STU0358","STU0359","STU0360","STU0361","STU0362","STU0363","STU0364","STU0365","STU0366","STU0367","STU0368","STU0369","STU0370","STU0371","STU0372","STU0373","STU0374","STU0375","STU0376","STU0377","STU0378","STU0379","STU0380","STU0381","STU0382","STU0383","STU0384","STU0385","STU0386","STU0387","STU0388","STU0389","STU0390","STU0391","STU0392","STU0393","STU0394","STU0395","STU0396","STU0397","STU0398","STU0399","STU0400","STU0401","STU0402","STU0403","STU0404","STU0405","STU0406","STU0407","STU0408","STU0409","STU0410","STU0411","STU0412","STU0413","STU0414","STU0415","STU0416","STU0417","STU0418","STU0419","STU0420","STU0421","STU0422","STU0423","STU0424","STU0425","STU0426","STU0427","STU0428","STU0429","STU0430","STU0431","STU0432","STU0433","STU0434","STU0435","STU0436","STU0437","STU0438","STU0439","STU0440","STU0441","STU0442","STU0443","STU0444","STU0445","STU0446","STU0447","STU0448","STU0449","STU0450","STU0451","STU0452","STU0453","STU0454","STU0455","STU0456","STU0457","STU0458","STU0459","STU0460","STU0461","STU0462","STU0463","STU0464","STU0465","STU0466","STU0467","STU0468","STU0469","STU0470","STU0471","STU0472","STU0473","STU0474","STU0475","STU0476","STU0477","STU0478","STU0479","STU0480","STU0481","STU0482","STU0483","STU0484","STU0485","STU0486","STU0487","STU0488","STU0489","STU0490","STU0491","STU0492","STU0493","STU0494","STU0495","STU0496","STU0497","STU0498","STU0499","STU0500"],"gender":["Male","Female","Female","Male","Female","Female","Male","Female","Female","Female","Female","Male","Female","Male","Female","Male","Male","Male","Male","Female","Male","Male","Male","Female","Female","Female","Male","Female","Female","Female","Male","Female","Female","Male","Male","Female","Male","Female","Female","Male","Male","Male","Male","Female","Female","Male","Male","Male","Female","Female","Female","Female","Female","Male","Male","Female","Female","Female","Male","Female","Male","Female","Female","Male","Male","Female","Male","Male","Female","Male","Male","Female","Female","Female","Male","Female","Female","Male","Female","Female","Male","Female","Male","Male","Female","Female","Female","Male","Female","Female","Male","Female","Female","Male","Female","Female","Female","Female","Female","Male","Male","Male","Male","Female","Female","Male","Female","Female","Male","Female","Female","Female","Male","Female","Female","Female","Female","Female","Female","Female","Female","Female","Male","Male","Male","Female","Male","Female","Male","Female","Male","Male","Female","Male","Male","Male","Male","Male","Female","Female","Female","Female","Female","Male","Female","Female","Male","Female","Male","Male","Male","Female","Male","Male","Male","Male","Female","Male","Female","Female","Male","Male","Female","Male","Female","Male","Male","Female","Male","Male","Female","Female","Female","Female","Female","Male","Female","Female","Female","Female","Female","Male","Female","Male","Male","Female","Female","Female","Female","Male","Female","Female","Male","Male","Female","Female","Male","Female","Male","Male","Male","Female","Female","Male","Male","Female","Male","Male","Male","Female","Female","Female","Male","Female","Male","Female","Male","Male","Male","Female","Male","Female","Female","Female","Female","Male","Female","Female","Female","Male","Female","Male","Female","Female","Male","Female","Male","Female","Female","Female","Male","Female","Female","Female","Male","Male","Female","Male","Male","Male","Male","Female","Female","Female","Male","Male","Male","Female","Male","Female","Male","Female","Male","Male","Female","Male","Female","Female","Female","Female","Male","Male","Female","Female","Female","Female","Male","Female","Female","Female","Male","Male","Male","Female","Female","Female","Female","Female","Female","Female","Male","Female","Male","Female","Male","Male","Male","Male","Female","Female","Female","Male","Female","Female","Male","Female","Male","Female","Female","Male","Female","Female","Male","Female","Male","Male","Female","Male","Female","Male","Male","Male","Female","Female","Female","Male","Male","Male","Female","Female","Female","Male","Male","Female","Female","Male","Male","Male","Male","Female","Female","Female","Female","Male","Female","Male","Female","Female","Female","Male","Male","Female","Male","Female","Female","Male","Female","Female","Male","Male","Female","Female","Female","Male","Male","Male","Male","Female","Male","Female","Male","Male","Female","Male","Male","Female","Female","Female","Female","Female","Female","Female","Female","Female","Male","Female","Female","Female","Male","Male","Male","Female","Male","Female","Male","Female","Female","Female","Male","Female","Male","Male","Female","Male","Female","Female","Male","Female","Female","Female","Female","Male","Female","Female","Male","Female","Male","Female","Female","Female","Male","Male","Male","Male","Female","Female","Male","Female","Male","Female","Female","Male","Male","Female","Male","Male","Male","Male","Male","Female","Male","Male","Male","Male","Male","Male","Female","Female","Male","Female","Female","Male","Male","Female","Male","Female","Male","Female","Female","Female","Female","Male","Male","Male","Female","Female","Male","Female","Male","Male","Female","Female","Female","Male","Female","Male","Female","Male","Female","Female","Male","Female","Male","Female","Male","Female","Male","Male","Female","Male","Male","Female","Female","Male","Male","Female","Female","Female","Male","Male"],"age":[15,15,19,16,15,19,18,15,19,15,16,16,19,19,15,16,17,15,17,18,19,15,19,17,15,18,15,15,16,19,16,17,18,19,18,15,17,17,19,15,17,18,18,16,17,19,18,17,18,16,19,16,16,18,16,15,18,18,17,16,16,17,18,18,15,17,17,16,16,17,15,17,17,19,15,17,19,18,16,17,17,15,17,19,15,15,19,17,18,18,16,18,18,19,17,17,19,19,19,17,17,16,18,17,19,19,18,15,15,17,16,15,16,19,18,19,18,17,16,15,16,17,18,18,18,17,15,19,17,15,15,16,16,19,15,19,18,17,15,17,17,15,18,16,19,17,15,17,15,19,18,17,19,18,18,16,16,16,18,15,17,19,19,15,18,19,17,17,17,16,16,16,16,19,17,17,15,16,18,16,15,19,16,18,17,16,15,19,17,18,19,17,17,15,17,15,15,18,18,19,15,18,19,18,15,15,19,15,18,17,16,19,16,16,15,18,17,17,18,19,17,19,15,16,18,19,19,16,17,17,16,16,17,18,19,18,17,16,17,15,17,16,15,16,16,15,15,18,18,19,16,15,19,19,15,19,19,19,18,18,19,18,18,15,15,19,19,18,17,17,19,15,17,15,16,17,16,19,19,17,19,19,19,19,18,15,16,17,15,18,17,17,18,18,18,17,19,18,18,19,16,15,19,15,19,15,19,16,18,17,19,19,16,18,16,16,18,19,19,17,16,16,17,16,18,18,15,18,15,15,17,18,19,16,17,18,16,16,18,19,17,16,15,19,16,15,16,17,15,19,18,16,16,17,19,18,17,15,19,16,16,18,17,15,15,15,19,16,19,16,19,17,18,17,16,17,19,16,15,15,19,17,17,19,16,16,18,15,17,15,19,19,15,15,16,18,17,19,19,15,16,19,17,19,18,16,15,17,17,18,16,16,15,17,16,19,16,17,19,17,15,18,17,19,15,18,18,19,18,16,18,17,16,16,17,16,18,15,16,19,18,15,15,17,15,15,15,18,16,17,15,18,15,17,15,15,15,15,15,19,15,17,18,19,18,16,19,15,19,17,15,15,16,15,19,15,15,18,17,18,18,18,15,15,15,18,19,17,15,17,19,16,16,17,15,19,16,18,17,15],"study_hours_per_week":[25,2,10,26,25,8,10,21,9,8,10,18,4,26,25,13,30,25,18,30,19,29,20,15,9,9,26,7,8,29,14,8,12,10,28,30,8,3,2,11,26,2,29,9,22,10,30,15,12,21,21,23,27,15,22,19,21,10,9,24,28,26,2,20,10,26,9,6,21,20,24,4,22,27,10,7,2,22,11,24,5,28,3,11,28,9,15,23,24,4,10,5,4,20,7,12,3,28,26,16,19,17,19,27,17,14,23,29,17,22,25,3,18,23,10,11,5,2,22,20,8,25,29,13,2,22,9,25,8,14,27,12,5,12,17,11,24,21,27,28,6,25,29,23,9,12,25,25,10,5,21,12,19,4,2,15,12,5,26,17,16,21,6,9,26,23,11,28,11,4,7,16,13,18,19,16,15,2,24,28,3,20,20,29,9,28,11,17,5,24,28,16,21,6,14,20,25,8,7,19,8,27,15,16,18,10,22,4,30,16,12,19,5,26,14,21,25,19,13,3,21,11,21,28,6,8,13,11,5,3,8,3,24,22,9,7,11,27,20,14,14,3,22,16,23,28,23,6,10,3,26,23,6,14,3,3,8,21,11,27,17,19,29,8,8,12,30,3,6,26,17,15,3,2,5,10,11,17,29,3,6,28,25,26,17,26,25,26,2,14,11,17,5,12,12,14,2,23,4,3,22,10,24,5,17,27,7,7,2,12,14,20,13,7,12,28,7,11,28,29,8,28,20,24,6,18,25,10,3,15,4,22,9,17,6,13,26,10,11,4,19,3,22,8,3,2,13,18,17,23,13,15,9,4,9,2,5,3,5,11,4,12,29,24,14,2,20,4,15,13,21,14,19,21,5,28,2,17,12,2,5,7,6,9,13,9,25,28,2,19,30,25,14,11,22,17,7,3,3,14,27,10,18,20,10,21,25,10,10,26,26,3,23,7,29,2,10,8,22,22,27,11,25,7,9,29,18,30,12,26,14,2,24,4,30,8,30,24,24,21,8,19,5,22,29,29,13,24,5,21,4,23,22,9,16,17,27,28,5,18,10,5,2,7,21,6,24,26,5,23,21,14,22,7,10,6,27,19,13,9,10,3,8,25,7,22,4,27,17,23,21,15,5,5,11,6,27,16,29,29],"attendance_rate":[63.8,54.7,90.5,66.8,73,85.2,72.7,81.7,84.2,95.7,57,74.7,69.2,63.3,93.8,88.1,99.3,74.3,93.6,75.9,61.5,66.5,73.6,70.6,59.6,93.7,92.4,68.9,64.8,76.6,56,83.5,96.5,56.6,77.2,55.4,84.4,50.2,55.6,68.2,78,59,51.9,51.2,75.5,51.9,78.8,53.5,70.1,78.5,82.7,54.2,60,94.3,84.4,62.5,90.8,87.6,63.6,60.7,71,69.5,69.4,78.2,69,97.6,82.5,73.7,80.4,83.9,88.6,75.3,94.6,96,94.1,74.4,75.8,85.6,83.2,72.7,87.1,59.7,98.7,73.5,53.3,55.9,65.3,54.1,79.7,84.4,91.3,73.4,79.9,97.5,99.8,83.5,72.7,99.4,74.9,94,50.7,96.6,57.2,75.4,67.3,61.7,89.6,92.3,89.1,85.9,54.5,66.2,70.6,62,83.3,81.9,61.9,78.3,59.5,68.2,56.6,93.5,90.2,83.6,81,70.4,94.4,86.3,72.2,63.8,66.7,88.7,83.1,50.8,72.4,72.9,95.5,81.7,85.1,72.7,84.3,86.9,95.8,74.1,90.4,67.6,76.5,66.2,72.2,67.3,52.7,56,91.7,93.1,98.3,79.4,89,57.3,78.2,72.1,72.6,75.4,97.9,85.4,66.9,69.3,98.4,56.4,59,64.8,59,80.5,83.9,70.9,96.7,95.3,52.7,65.9,91.6,57.5,61.9,62.1,70.8,73.5,86.6,89,60.1,62.7,90,74.9,59,80.1,99.9,92.4,97.5,56.9,59.3,99.8,94.9,64.5,89.6,99.2,88.5,84,57.7,59.8,58.4,52.3,81.4,53.6,80.3,55.3,52.5,58,75.3,94.1,68.3,64.4,89.7,52.3,65.9,73.7,73.7,84,70.6,78,83.8,88.6,78.7,64.4,91.4,83.5,73.6,60,76.8,96.8,72.7,55.6,83.7,83.5,61.8,83.4,95.8,87.4,87.7,77.4,60.3,75.7,90.8,96.7,82.1,98.2,86.4,91.2,90.5,72.3,87.7,88.6,63.8,76.2,62,76.5,68.6,90.2,96.9,88.8,74.9,78.1,59.8,91.1,59.2,56.9,80.9,76.5,95.9,89.7,84.2,52.8,98.7,96.2,87.6,92.5,98.7,80.7,61.4,80.9,69.5,63.5,54.5,89,63.4,89.1,56.8,71.5,58.9,64,97.7,75,72.5,89.5,80.6,61.1,75,91.6,67.4,85.5,77.6,82,85.2,59.9,79.4,54.2,84.7,74.3,92.1,69.2,54.1,58.4,87.8,100,90.5,60.3,63.4,93.3,78.9,87.5,98.6,66.1,55,60.1,68.6,54.6,76,53.5,69.1,86.1,56.2,82.2,82.3,76.4,84.1,96.1,76.8,98.7,62.2,85.4,56.3,53.2,93,86.1,69.1,95.8,90.2,77.7,73.2,61.6,60.3,96.1,75.3,63,97.2,70.3,56,62.4,92.7,53.1,62.9,95.3,91.1,60.7,80.8,56.9,89.1,61,62.4,99.6,85.2,51.9,95.9,57.4,66.8,85.4,58.9,82,99.1,84.7,71,74,65.9,97.1,71.7,96.3,78.6,91.2,64.6,94.7,72.3,57.6,92,95.1,59.6,66,72.9,79.1,69.2,80.4,73.8,92.1,86.4,75.8,92.6,72.8,51.5,91.9,78.6,93.2,80.4,73.3,79.7,66.3,92.9,63,85.7,64.7,67.8,55.9,64.9,95.3,81.6,88.7,71.5,94.6,93.8,91.2,74.5,86.7,82,55.8,84.3,85,80.5,74.8,91.8,61.6,64.5,56.9,90.7,92.5,70.8,51.4,63.1,86.3,96.7,66.5,72.2,87.3,80.2,61.1,88,68.7,80.5,87.9,76.5,86.5,95.8,70.6,64.5,67.6,51.3,62.5,93.4,69.4,85.2,98.1,56.5,96.4,85.4,76.9,64.7,95.2,77,64.8,83.5,84.3,89.7,70.2,87.8,84.3,57.8,94.3,69.7,95.3,59.1,59.9,81,78.3,61.1,72.3,91.3,75.4],"parent_education":["Bachelor","Bachelor","High School","High School","High School","High School","Master","None","High School","None","None","High School","None","Master","Master","None","Master","High School","PhD","High School","Bachelor","None","PhD","High School","None","High School","Bachelor","PhD","High School","High School","None","Master","High School","Master","Master","None","Master","Bachelor","Bachelor","High School","PhD","Master","PhD","Bachelor","None","None","Master","Master","Master","PhD","PhD","None","High School","None","High School","High School","None","Master","Master","PhD","None","PhD","PhD","High School","Bachelor","PhD","High School","High School","High School","PhD","None","Master","PhD","PhD","Bachelor","Master","Bachelor","PhD","Master","Master","Bachelor","Bachelor","None","PhD","PhD","PhD","None","Bachelor","Master","Master","High School","Master","PhD","Master","PhD","Bachelor","Master","None","PhD","PhD","PhD","Master","Bachelor","High School","None","PhD","Bachelor","High School","Master","PhD","High School","High School","Bachelor","None","PhD","PhD","None","High School","Master","Bachelor","None","High School","Master","Master","None","Bachelor","Bachelor","PhD","Bachelor","High School","Bachelor","None","High School","Master","Master","High School","High School","None","None","PhD","PhD","Bachelor","High School","High School","None","Bachelor","PhD","None","PhD","High School","Bachelor","PhD","Master","None","Bachelor","None","High School","Bachelor","None","Master","High School","PhD","PhD","PhD","None","Master","PhD","None","Bachelor","High School","None","PhD","None","Bachelor","None","Bachelor","None","High School","PhD","None","None","Bachelor","High School","PhD","High School","PhD","Bachelor","Bachelor","PhD","None","Master","PhD","Master","PhD","High School","Master","None","Master","PhD","Master","Bachelor","Bachelor","None","Master","Bachelor","None","None","None","Master","High School","Master","Bachelor","PhD","None","Bachelor","PhD","PhD","PhD","Master","Bachelor","PhD","High School","None","High School","Bachelor","PhD","Master","Bachelor","None","High School","Master","None","Bachelor","Master","High School","Master","None","Bachelor","Bachelor","Bachelor","Master","PhD","Master","None","High School","None","None","PhD","Bachelor","High School","PhD","None","Bachelor","Bachelor","PhD","High School","High School","Master","None","PhD","Bachelor","PhD","None","None","High School","PhD","High School","Bachelor","Bachelor","PhD","None","Bachelor","None","Master","None","High School","High School","High School","None","Master","PhD","None","High School","None","None","Bachelor","Master","Bachelor","None","None","Bachelor","Master","High School","None","PhD","PhD","PhD","Master","None","Master","None","None","Master","Bachelor","High School","High School","Master","PhD","Bachelor","High School","Master","Bachelor","None","None","None","None","High School","PhD","PhD","PhD","None","High School","None","Bachelor","Master","Master","Master","Master","PhD","Bachelor","Bachelor","High School","PhD","PhD","Bachelor","Bachelor","PhD","Bachelor","Bachelor","High School","PhD","PhD","None","Bachelor","PhD","High School","Master","None","Bachelor","Bachelor","Bachelor","Master","High School","High School","None","Master","Bachelor","None","PhD","Master","Bachelor","None","Bachelor","Master","None","Bachelor","High School","Master","PhD","Bachelor","Master","Bachelor","Master","Master","Bachelor","Bachelor","Master","High School","Bachelor","Bachelor","Master","None","High School","High School","Bachelor","Master","Bachelor","None","High School","High School","High School","None","PhD","None","High School","Master","Master","High School","None","High School","High School","High School","High School","High School","PhD","PhD","Master","High School","None","Master","None","Master","Master","Master","Bachelor","High School","Master","None","Master","Master","None","PhD","None","PhD","Master","High School","High School","PhD","Bachelor","None","PhD","None","Master","Master","Bachelor","None","None","PhD","High School","PhD","Master","Bachelor","PhD","Master","Master","Bachelor","Bachelor","PhD","None","Bachelor","Master","PhD","None","Master","None","High School","None","PhD","Bachelor","High School","Bachelor","High School","High School","Bachelor","Bachelor","None","Master","PhD","Bachelor","High School","None","Master","Master","None","None","None","None","High School","None","None","Master","Bachelor","Bachelor","High School","None","Master","None","None","Bachelor","Master","None","None","None","None","Bachelor","Master","PhD","Master","None","High School"],"internet_access":["Yes","Yes","Yes","No","No","Yes","Yes","Yes","Yes","No","No","Yes","No","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","No","Yes","No","No","No","No","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","No","No","Yes","No","Yes","No","Yes","No","No","No","Yes","No","Yes","Yes","No","No","Yes","Yes","No","No","No","No","Yes","No","Yes","Yes","Yes","Yes","No","No","Yes","Yes","Yes","No","Yes","Yes","Yes","No","No","No","Yes","Yes","No","No","Yes","No","No","No","Yes","Yes","Yes","Yes","Yes","Yes","Yes","No","No","Yes","No","No","No","No","Yes","Yes","Yes","No","Yes","No","No","Yes","No","No","No","Yes","Yes","No","Yes","Yes","No","No","No","No","Yes","Yes","No","No","Yes","No","No","Yes","No","Yes","No","No","Yes","Yes","Yes","Yes","Yes","Yes","Yes","No","Yes","Yes","Yes","Yes","No","No","Yes","Yes","No","Yes","No","No","No","No","Yes","No","No","Yes","Yes","Yes","No","No","No","Yes","Yes","Yes","Yes","Yes","Yes","Yes","No","Yes","Yes","Yes","No","Yes","Yes","No","No","No","No","No","No","No","No","No","No","No","Yes","No","No","No","No","Yes","Yes","Yes","Yes","No","No","No","Yes","Yes","No","Yes","Yes","Yes","Yes","No","Yes","No","No","Yes","No","No","No","No","Yes","No","No","No","No","No","No","No","Yes","Yes","No","No","No","No","No","No","No","Yes","Yes","No","Yes","Yes","No","No","Yes","Yes","No","No","No","No","No","Yes","No","Yes","Yes","No","No","Yes","Yes","No","Yes","Yes","Yes","Yes","Yes","No","No","Yes","Yes","Yes","No","No","No","Yes","No","No","Yes","Yes","No","No","Yes","No","Yes","Yes","Yes","Yes","Yes","No","Yes","No","No","Yes","Yes","Yes","Yes","Yes","Yes","No","No","Yes","No","No","Yes","Yes","No","Yes","No","Yes","Yes","No","No","No","No","No","No","No","No","No","No","Yes","Yes","No","Yes","No","Yes","No","No","No","Yes","Yes","No","No","Yes","No","Yes","No","Yes","Yes","Yes","Yes","Yes","No","No","No","No","No","Yes","No","Yes","No","Yes","Yes","Yes","Yes","No","Yes","Yes","No","No","No","No","Yes","No","No","Yes","No","Yes","No","No","No","Yes","Yes","Yes","Yes","No","No","No","Yes","No","Yes","No","Yes","Yes","Yes","Yes","Yes","Yes","No","No","No","Yes","No","No","Yes","Yes","No","Yes","No","Yes","No","No","Yes","No","Yes","No","Yes","No","Yes","No","Yes","No","Yes","No","Yes","Yes","Yes","Yes","Yes","No","Yes","Yes","No","No","No","No","No","No","No","No","Yes","No","Yes","Yes","Yes","No","Yes","No","Yes","Yes","No","Yes","Yes","Yes","No","No","Yes","Yes","No","Yes","No","No","No","Yes","Yes","No","No","Yes","No","No","Yes","No","Yes","No","No","Yes","Yes","Yes","Yes","No","Yes","No","No","Yes","No","Yes","No","Yes","Yes","Yes","Yes","No","Yes","Yes","No","No","Yes","Yes","No","No","No","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","No","No","No","No","No","Yes","No"],"extracurricular":["Yes","Yes","No","Yes","Yes","No","No","Yes","Yes","Yes","No","Yes","No","No","Yes","No","Yes","Yes","Yes","Yes","Yes","No","Yes","Yes","Yes","Yes","No","No","No","Yes","Yes","No","No","Yes","No","No","No","Yes","No","Yes","Yes","Yes","Yes","No","Yes","No","No","Yes","Yes","No","No","Yes","Yes","No","Yes","Yes","No","Yes","Yes","No","No","No","No","No","No","Yes","Yes","No","No","Yes","Yes","No","No","No","No","No","Yes","Yes","No","Yes","Yes","Yes","Yes","Yes","Yes","No","Yes","Yes","Yes","No","Yes","No","No","Yes","Yes","No","No","No","Yes","Yes","Yes","No","Yes","No","No","No","Yes","Yes","No","Yes","No","No","Yes","Yes","Yes","No","No","No","Yes","No","No","Yes","No","No","Yes","Yes","No","No","Yes","Yes","Yes","No","Yes","Yes","No","No","No","No","No","No","Yes","No","No","No","No","No","No","Yes","No","No","Yes","Yes","No","No","No","No","Yes","Yes","No","Yes","No","No","No","No","No","No","Yes","No","No","No","No","Yes","No","Yes","No","Yes","Yes","Yes","Yes","Yes","Yes","No","Yes","No","Yes","Yes","No","No","No","Yes","Yes","No","Yes","Yes","No","No","Yes","Yes","No","Yes","Yes","Yes","Yes","Yes","No","Yes","Yes","Yes","No","No","No","Yes","Yes","No","No","Yes","Yes","No","Yes","No","No","No","Yes","Yes","No","No","Yes","No","No","No","Yes","Yes","Yes","No","No","Yes","Yes","No","No","No","No","Yes","Yes","No","No","Yes","Yes","No","Yes","Yes","No","No","Yes","No","Yes","Yes","No","No","No","Yes","Yes","No","Yes","No","Yes","No","No","Yes","Yes","Yes","Yes","Yes","No","Yes","Yes","No","Yes","Yes","Yes","Yes","No","No","No","No","No","Yes","Yes","Yes","No","Yes","Yes","Yes","No","No","No","Yes","No","No","No","Yes","No","No","No","No","No","Yes","No","Yes","Yes","No","No","Yes","No","Yes","No","No","No","Yes","No","No","No","No","Yes","No","No","No","No","Yes","Yes","Yes","No","Yes","Yes","Yes","Yes","No","No","Yes","No","No","Yes","No","No","No","No","No","Yes","No","Yes","Yes","Yes","Yes","Yes","Yes","Yes","No","No","No","Yes","No","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","No","No","Yes","No","No","Yes","Yes","Yes","Yes","No","No","Yes","Yes","Yes","Yes","No","Yes","No","Yes","No","No","No","No","Yes","Yes","Yes","No","No","No","No","Yes","Yes","No","Yes","Yes","Yes","No","Yes","Yes","Yes","Yes","Yes","No","No","No","Yes","Yes","No","Yes","Yes","No","No","No","No","No","No","No","Yes","No","Yes","No","Yes","Yes","Yes","No","No","Yes","Yes","Yes","No","Yes","No","No","Yes","No","Yes","No","No","Yes","No","No","Yes","No","No","Yes","Yes","No","Yes","No","No","Yes","No","No","No","No","No","No","Yes","No","Yes","Yes","No","Yes","Yes","No","Yes","No","Yes","Yes","Yes","Yes","No","Yes","Yes","No","Yes","No","Yes","No","No","Yes","No","Yes","No","No","No","No","No","Yes","No","Yes"],"previous_score":[41,83,73,75,67,40,75,89,70,93,81,50,31,85,68,92,60,90,69,38,37,92,42,81,84,36,91,66,37,38,40,80,42,77,43,66,36,86,48,61,50,64,88,65,44,70,30,68,83,66,57,60,90,93,52,89,50,65,49,89,91,58,46,47,73,90,55,62,43,39,74,92,52,64,73,65,82,67,84,45,91,68,92,36,49,87,56,50,66,44,69,94,33,90,90,93,44,36,64,60,44,91,65,92,71,90,46,48,40,60,51,77,40,89,39,68,67,59,35,71,51,48,31,43,38,68,77,82,77,57,56,48,75,83,94,81,48,67,87,84,40,45,75,44,33,38,73,49,83,69,47,46,35,83,41,69,74,39,70,75,39,54,40,77,38,40,69,95,54,46,35,69,66,62,40,58,79,47,40,66,44,30,94,32,35,47,69,36,79,84,40,74,81,38,77,65,63,45,74,76,76,69,70,46,58,68,73,83,61,83,81,64,50,69,36,43,81,45,55,88,94,44,91,32,37,52,61,91,74,62,43,36,82,37,52,68,94,53,84,71,31,81,58,90,39,51,95,69,84,66,87,45,68,49,56,81,59,48,93,68,89,56,64,56,56,69,56,63,93,75,39,31,32,94,54,88,81,93,57,70,50,47,59,33,53,64,30,85,79,78,85,93,78,71,92,55,67,49,94,61,85,77,43,73,70,51,59,55,43,70,52,60,47,92,31,92,34,44,43,41,51,51,82,61,87,71,57,92,50,65,69,91,73,43,31,57,70,68,44,46,38,84,40,38,37,74,72,88,62,31,83,77,89,67,61,30,37,88,85,70,43,87,57,68,89,81,55,89,78,87,91,78,64,75,58,70,93,32,52,39,85,52,53,72,87,30,78,87,51,33,56,68,76,42,69,53,63,82,60,87,85,80,83,66,52,72,73,68,86,38,54,77,52,33,56,52,78,30,91,54,47,34,94,53,77,54,55,53,30,41,34,30,79,73,32,76,43,62,42,66,82,60,95,36,42,86,81,46,53,44,73,49,51,78,93,82,88,76,75,93,57,88,95,71,73,57,94,84,55,34,60,62,67,35,72,92,38,57,44,71,95,42,56,34,63,45,75,86,67,45,56,53,39,75,87,51,47,52,39,34],"final_score":[67,28,49,70,77,37,42,70,49,56,44,69,38,64,84,49,89,79,65,70,46,72,48,67,38,53,75,42,24,78,43,42,42,41,62,78,31,38,27,55,82,23,72,28,57,42,75,53,61,59,68,68,80,66,78,71,76,53,34,70,66,64,37,61,59,71,34,52,67,65,79,34,79,77,42,49,42,64,66,74,44,58,40,38,56,46,58,45,80,42,60,50,23,78,54,55,44,70,76,71,51,72,67,70,50,64,71,78,55,75,71,37,60,75,46,45,24,42,51,72,32,84,69,59,39,67,63,72,51,56,74,43,57,50,58,52,61,68,75,75,29,70,75,74,37,34,65,57,46,27,65,41,61,44,38,68,55,22,65,63,58,59,47,48,61,66,61,73,37,38,33,71,66,46,74,63,41,20,56,64,31,58,80,67,42,65,49,56,45,62,62,61,73,36,61,52,76,39,60,64,56,81,68,56,51,50,68,42,91,56,47,56,28,70,36,66,60,45,61,26,71,45,61,72,44,44,49,57,54,44,52,24,79,67,32,56,56,52,72,52,38,51,62,77,71,70,70,53,55,44,78,62,47,51,29,41,58,73,40,73,47,57,73,45,49,51,74,42,47,71,57,36,20,51,51,62,54,57,91,32,48,89,65,74,60,65,58,74,20,53,45,74,50,57,57,54,52,73,53,49,62,45,61,48,46,84,55,45,47,53,61,52,57,45,51,79,26,35,84,80,53,65,51,85,37,70,76,63,30,40,48,54,38,45,39,43,79,44,41,35,46,57,58,43,24,44,60,61,74,58,48,54,52,45,36,36,21,58,53,48,33,50,66,61,54,31,64,38,71,44,59,63,58,73,40,95,49,48,67,24,54,43,41,60,51,30,70,68,29,62,68,71,44,37,76,60,36,47,44,56,66,52,54,68,39,77,84,64,49,63,68,40,60,41,71,45,50,40,62,52,85,45,76,46,42,72,52,93,47,62,51,42,80,45,65,60,83,65,75,58,46,47,41,46,80,81,61,79,43,53,40,72,59,46,63,54,77,82,53,55,49,57,53,51,68,32,76,86,26,56,72,45,70,44,45,66,83,68,53,53,67,22,50,56,48,65,48,79,61,57,71,53,27,29,53,27,74,61,86,74],"passed":["Yes","No","No","Yes","Yes","No","No","Yes","No","Yes","No","Yes","No","Yes","Yes","No","Yes","Yes","Yes","Yes","No","Yes","No","Yes","No","Yes","Yes","No","No","Yes","No","No","No","No","Yes","Yes","No","No","No","Yes","Yes","No","Yes","No","Yes","No","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","No","Yes","Yes","Yes","No","Yes","Yes","Yes","No","Yes","Yes","Yes","Yes","No","Yes","Yes","No","No","No","Yes","Yes","Yes","No","Yes","No","No","Yes","No","Yes","No","Yes","No","Yes","Yes","No","Yes","Yes","Yes","No","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","No","Yes","Yes","No","No","No","No","Yes","Yes","No","Yes","Yes","Yes","No","Yes","Yes","Yes","Yes","Yes","Yes","No","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","No","Yes","Yes","Yes","No","No","Yes","Yes","No","No","Yes","No","Yes","No","No","Yes","Yes","No","Yes","Yes","Yes","Yes","No","No","Yes","Yes","Yes","Yes","No","No","No","Yes","Yes","No","Yes","Yes","No","No","Yes","Yes","No","Yes","Yes","Yes","No","Yes","No","Yes","No","Yes","Yes","Yes","Yes","No","Yes","Yes","Yes","No","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","No","Yes","Yes","No","Yes","No","Yes","No","Yes","Yes","No","Yes","No","Yes","No","Yes","Yes","No","No","No","Yes","Yes","No","Yes","No","Yes","Yes","No","Yes","Yes","Yes","Yes","Yes","No","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","No","Yes","Yes","No","Yes","No","No","Yes","Yes","No","Yes","No","Yes","Yes","No","No","Yes","Yes","No","No","Yes","Yes","No","No","Yes","Yes","Yes","Yes","Yes","Yes","No","No","Yes","Yes","Yes","Yes","Yes","Yes","Yes","No","Yes","No","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","No","Yes","No","Yes","No","No","Yes","Yes","No","No","Yes","Yes","Yes","Yes","No","Yes","Yes","No","No","Yes","Yes","Yes","Yes","Yes","Yes","No","Yes","Yes","Yes","No","No","No","Yes","No","No","No","No","Yes","No","No","No","No","Yes","Yes","No","No","No","Yes","Yes","Yes","Yes","No","Yes","Yes","No","No","No","No","Yes","Yes","No","No","Yes","Yes","Yes","Yes","No","Yes","No","Yes","No","Yes","Yes","Yes","Yes","No","Yes","No","No","Yes","No","Yes","No","No","Yes","Yes","No","Yes","Yes","No","Yes","Yes","Yes","No","No","Yes","Yes","No","No","No","Yes","Yes","Yes","Yes","Yes","No","Yes","Yes","Yes","No","Yes","Yes","No","Yes","No","Yes","No","Yes","No","Yes","Yes","Yes","No","Yes","No","No","Yes","Yes","Yes","No","Yes","Yes","No","Yes","No","Yes","Yes","Yes","Yes","Yes","Yes","No","No","No","No","Yes","Yes","Yes","Yes","No","Yes","No","Yes","Yes","No","Yes","Yes","Yes","Yes","Yes","Yes","No","Yes","Yes","Yes","Yes","No","Yes","Yes","No","Yes","Yes","No","Yes","No","No","Yes","Yes","Yes","Yes","Yes","Yes","No","Yes","Yes","No","Yes","No","Yes","Yes","Yes","Yes","Yes","No","No","Yes","No","Yes","Yes","Yes","Yes"]}},{"name":"niveles","value":["Bachelor","High School","Master","None","PhD"]},{"name":"rango_a","value":[50.2,100]}]}
+
+</script>
+
+
+
+</head>
+
+<body class="quarto-dashboard dashboard-fill dashboard-sidebar fullcontent quarto-light">
+
+<header id="quarto-dashboard-header">
+<nav class="navbar navbar-expand-md slim" data-bs-theme="dark">
+  <div class="navbar-container container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-controls="dashboard-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>    
+
+
+    <div class="navbar-brand-container">
+
+
+      <div class="navbar-title">
+        <div class="navbar-title-text"><a href="#">Rendimiento Estudiantil</a></div>
+        <div class="navbar-subtitle">TP Transversal - Moreno Cecilia / Patiri Sabrina</div>
+        
+      </div>
+    </div>
+<div id="dashboard-collapse" class="navbar-collapse collapse"><ul class="navbar-nav navbar-nav-scroll me-auto" role="tablist"><li class="nav-item" role="presentation"><a id="tab-resumen" class="nav-link active" data-bs-toggle="tab" role="tab" data-bs-target="#resumen" data-scrolling="false" href="#resumen" aria-controls="resumen" aria-selected="true"><span class="nav-link-text">Resumen</span></a></li><li class="nav-item" role="presentation"><a id="tab-relaciones" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#relaciones" data-scrolling="false" href="#relaciones" aria-controls="relaciones" aria-selected="false"><span class="nav-link-text">Relaciones</span></a></li><li class="nav-item" role="presentation"><a id="tab-horas-de-estudio" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#horas-de-estudio" data-scrolling="false" href="#horas-de-estudio" aria-controls="horas-de-estudio" aria-selected="false"><span class="nav-link-text">Horas de estudio</span></a></li><li class="nav-item" role="presentation"><a id="tab-datos" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#datos" data-scrolling="false" href="#datos" aria-controls="datos" aria-selected="false"><span class="nav-link-text">Datos</span></a></li></ul><div class="quarto-dashboard-links"><a class="quarto-dashboard-link" href="https://github.com/TUUSUARIO/TUREPO"><i class="bi bi-github"></i></a></div></div></div>
+</nav>
+</header>
+<div class="page-layout-custom quarto-dashboard-content bslib-gap-spacing html-fill-container bslib-page-fill quarto-dashboard-pages dashboard-sidebar-container">  
+
+<div class="cell hidden bslib-grid-item html-fill-item">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="33" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 32;"><span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> <span class="fu">transpose</span>(datos)</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>media <span class="op">=</span> (arr<span class="op">,</span> f) <span class="kw">=&gt;</span> arr<span class="op">.</span><span class="at">length</span> <span class="op">?</span> arr<span class="op">.</span><span class="fu">reduce</span>((s<span class="op">,</span> d) <span class="kw">=&gt;</span> s <span class="op">+</span> <span class="fu">f</span>(d)<span class="op">,</span> <span class="dv">0</span>) <span class="op">/</span> arr<span class="op">.</span><span class="at">length</span> <span class="op">:</span> <span class="kw">NaN</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display hidden">
+<div>
+<div id="ojs-cell-1-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display hidden">
+<div>
+<div id="ojs-cell-1-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<div class="bslib-sidebar-layout html-fill-item html-fill-container" data-bslib-sidebar-open="desktop" data-bslib-sidebar-init="true" data-bslib-sidebar-border="false" data-bslib-sidebar-border-radius="false"><div class="main html-fill-container html-fill-item"><div class="sidebar-content html-fill-item html-fill-container">
+<div class="tab-content bslib-grid html-fill-item html-fill-container" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div id="resumen" class="dashboard-page tab-pane show active html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-resumen">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 20fr) minmax(3em, 80fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card valuebox cell html-fill-item html-fill-container bslib-card bslib-value-box bg-secondary" data-bslib-card-init="" data-require-bs-caller="card()">
+<div class="card-body html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container value-box-grid">
+<div class="value-box-area">
+<p class="value-box-title">
+Estudiantes
+</p>
+<p class="value-box-value">
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb3" data-startfrom="73" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 72;"><span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>({<span class="dt">color</span><span class="op">:</span> <span class="st">"#e8f0f8"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> filtrado<span class="op">.</span><span class="at">length</span>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div id="ojs-cell-3" data-nodetype="expression" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</p>
+</div>
+</div>
+</div>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card valuebox cell html-fill-item html-fill-container bslib-card bslib-value-box bg-secondary" data-bslib-card-init="" data-require-bs-caller="card()">
+<div class="card-body html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container value-box-grid">
+<div class="value-box-area">
+<p class="value-box-title">
+Nota final promedio
+</p>
+<p class="value-box-value">
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb4" data-startfrom="79" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 78;"><span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a>({<span class="dt">color</span><span class="op">:</span> <span class="st">"#e8f0f8"</span><span class="op">,</span></span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="fu">media</span>(filtrado<span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">final_score</span>)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div id="ojs-cell-4" data-nodetype="expression" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</p>
+</div>
+</div>
+</div>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card valuebox cell html-fill-item html-fill-container bslib-card bslib-value-box bg-secondary" data-bslib-card-init="" data-require-bs-caller="card()">
+<div class="card-body html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container value-box-grid">
+<div class="value-box-area">
+<p class="value-box-title">
+% de aprobados
+</p>
+<p class="value-box-value">
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb5" data-startfrom="86" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 85;"><span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>({<span class="dt">color</span><span class="op">:</span> <span class="st">"#e3f4ef"</span><span class="op">,</span></span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> (<span class="dv">100</span> <span class="op">*</span> <span class="fu">media</span>(filtrado<span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">passed</span> <span class="op">===</span> <span class="st">"Yes"</span> <span class="op">?</span> <span class="dv">1</span> <span class="op">:</span> <span class="dv">0</span>))<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>) <span class="op">+</span> <span class="st">"%"</span>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div id="ojs-cell-5" data-nodetype="expression" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</p>
+</div>
+</div>
+</div>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card valuebox cell html-fill-item html-fill-container bslib-card bslib-value-box bg-secondary" data-bslib-card-init="" data-require-bs-caller="card()">
+<div class="card-body html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container value-box-grid">
+<div class="value-box-area">
+<p class="value-box-title">
+Asistencia promedio
+</p>
+<p class="value-box-value">
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb6" data-startfrom="93" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 92;"><span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a>({<span class="dt">color</span><span class="op">:</span> <span class="st">"#e8f0f8"</span><span class="op">,</span></span>
+<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="fu">media</span>(filtrado<span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">attendance_rate</span>)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>) <span class="op">+</span> <span class="st">"%"</span>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div id="ojs-cell-6" data-nodetype="expression" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</p>
+</div>
+</div>
+</div>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card valuebox cell html-fill-item html-fill-container bslib-card bslib-value-box bg-secondary" data-bslib-card-init="" data-require-bs-caller="card()">
+<div class="card-body html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container value-box-grid">
+<div class="value-box-area">
+<p class="value-box-title">
+Horas de estudio / semana
+</p>
+<p class="value-box-value">
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb7" data-startfrom="100" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 99;"><span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a>({<span class="dt">color</span><span class="op">:</span> <span class="st">"#e8f0f8"</span><span class="op">,</span></span>
+<span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="fu">media</span>(filtrado<span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">study_hours_per_week</span>)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div id="ojs-cell-7" data-nodetype="expression" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</p>
+</div>
+</div>
+</div>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="¿Dónde se concentran las notas finales?" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
+¿Dónde se concentran las notas finales?
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb8" data-startfrom="108" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 107;"><span id="cb8-108"><a href="#cb8-108" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb8-109"><a href="#cb8-109" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Nota final"</span>}<span class="op">,</span></span>
+<span id="cb8-110"><a href="#cb8-110" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Frecuencia"</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb8-111"><a href="#cb8-111" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb8-112"><a href="#cb8-112" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">rectY</span>(filtrado<span class="op">,</span> Plot<span class="op">.</span><span class="fu">binX</span>({<span class="dt">y</span><span class="op">:</span> <span class="st">"count"</span>}<span class="op">,</span></span>
+<span id="cb8-113"><a href="#cb8-113" aria-hidden="true" tabindex="-1"></a>      {<span class="dt">x</span><span class="op">:</span> <span class="st">"final_score"</span><span class="op">,</span> <span class="dt">thresholds</span><span class="op">:</span> <span class="dv">25</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"steelblue"</span>}))<span class="op">,</span></span>
+<span id="cb8-114"><a href="#cb8-114" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([<span class="dv">0</span>])</span>
+<span id="cb8-115"><a href="#cb8-115" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb8-116"><a href="#cb8-116" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div id="ojs-cell-8" data-nodetype="expression" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card cell html-fill-item html-fill-container bslib-card" data-title="¿Influye el nivel educativo de los padres?" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
+¿Influye el nivel educativo de los padres?
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb9" data-startfrom="121" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 120;"><span id="cb9-121"><a href="#cb9-121" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb9-122"><a href="#cb9-122" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marginLeft</span><span class="op">:</span> <span class="dv">90</span><span class="op">,</span></span>
+<span id="cb9-123"><a href="#cb9-123" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"% de estudiantes"</span><span class="op">,</span> <span class="dt">percent</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb9-124"><a href="#cb9-124" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="kw">null</span>}<span class="op">,</span></span>
+<span id="cb9-125"><a href="#cb9-125" aria-hidden="true" tabindex="-1"></a>  <span class="dt">color</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="st">"Yes"</span><span class="op">,</span> <span class="st">"No"</span>]<span class="op">,</span> <span class="dt">range</span><span class="op">:</span> [<span class="st">"#2a9d8f"</span><span class="op">,</span> <span class="st">"#e76f51"</span>]<span class="op">,</span></span>
+<span id="cb9-126"><a href="#cb9-126" aria-hidden="true" tabindex="-1"></a>          <span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="kw">null</span>}<span class="op">,</span></span>
+<span id="cb9-127"><a href="#cb9-127" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb9-128"><a href="#cb9-128" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">barX</span>(filtrado<span class="op">,</span> Plot<span class="op">.</span><span class="fu">groupY</span>({<span class="dt">x</span><span class="op">:</span> <span class="st">"count"</span>}<span class="op">,</span></span>
+<span id="cb9-129"><a href="#cb9-129" aria-hidden="true" tabindex="-1"></a>      {<span class="dt">y</span><span class="op">:</span> <span class="st">"parent_education"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"passed"</span><span class="op">,</span> <span class="dt">offset</span><span class="op">:</span> <span class="st">"normalize"</span><span class="op">,</span> <span class="dt">tip</span><span class="op">:</span> <span class="kw">true</span>}))<span class="op">,</span></span>
+<span id="cb9-130"><a href="#cb9-130" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleX</span>([<span class="dv">0</span>])</span>
+<span id="cb9-131"><a href="#cb9-131" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb9-132"><a href="#cb9-132" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div id="ojs-cell-9" data-nodetype="expression" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+</div><div id="relaciones" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-relaciones">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr) minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" data-width="60%" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="¿Estudiar más sube la nota?" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
+¿Estudiar más sube la nota?
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb10" data-startfrom="141" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 140;"><span id="cb10-141"><a href="#cb10-141" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb10-142"><a href="#cb10-142" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Horas de estudio por semana"</span>}<span class="op">,</span></span>
+<span id="cb10-143"><a href="#cb10-143" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Nota final"</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb10-144"><a href="#cb10-144" aria-hidden="true" tabindex="-1"></a>  <span class="dt">color</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="st">"No"</span><span class="op">,</span> <span class="st">"Yes"</span>]<span class="op">,</span> <span class="dt">range</span><span class="op">:</span> [<span class="st">"#e76f51"</span><span class="op">,</span> <span class="st">"#2a9d8f"</span>]<span class="op">,</span></span>
+<span id="cb10-145"><a href="#cb10-145" aria-hidden="true" tabindex="-1"></a>          <span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Aprobó"</span>}<span class="op">,</span></span>
+<span id="cb10-146"><a href="#cb10-146" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb10-147"><a href="#cb10-147" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>(filtrado<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"study_hours_per_week"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"final_score"</span><span class="op">,</span></span>
+<span id="cb10-148"><a href="#cb10-148" aria-hidden="true" tabindex="-1"></a>      <span class="dt">stroke</span><span class="op">:</span> <span class="st">"passed"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">3</span><span class="op">,</span> <span class="dt">fillOpacity</span><span class="op">:</span> <span class="fl">0.4</span><span class="op">,</span></span>
+<span id="cb10-149"><a href="#cb10-149" aria-hidden="true" tabindex="-1"></a>      <span class="dt">title</span><span class="op">:</span> d <span class="kw">=&gt;</span> <span class="vs">`ID: </span><span class="sc">${</span>d<span class="op">.</span><span class="at">student_id</span><span class="sc">}</span><span class="vs">`</span><span class="op">,</span> <span class="dt">tip</span><span class="op">:</span> <span class="kw">true</span>})</span>
+<span id="cb10-150"><a href="#cb10-150" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb10-151"><a href="#cb10-151" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div id="ojs-cell-10" data-nodetype="expression" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card cell html-fill-item html-fill-container bslib-card" data-title="¿La nota anterior anticipa la final?" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
+¿La nota anterior anticipa la final?
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb11" data-startfrom="156" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 155;"><span id="cb11-156"><a href="#cb11-156" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb11-157"><a href="#cb11-157" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Nota anterior"</span>}<span class="op">,</span></span>
+<span id="cb11-158"><a href="#cb11-158" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Nota final"</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb11-159"><a href="#cb11-159" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb11-160"><a href="#cb11-160" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>(filtrado<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"previous_score"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"final_score"</span><span class="op">,</span></span>
+<span id="cb11-161"><a href="#cb11-161" aria-hidden="true" tabindex="-1"></a>      <span class="dt">fill</span><span class="op">:</span> <span class="st">"steelblue"</span><span class="op">,</span> <span class="dt">fillOpacity</span><span class="op">:</span> <span class="fl">0.5</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">3</span><span class="op">,</span> <span class="dt">tip</span><span class="op">:</span> <span class="kw">true</span>})<span class="op">,</span></span>
+<span id="cb11-162"><a href="#cb11-162" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">linearRegressionY</span>(filtrado<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"previous_score"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"final_score"</span><span class="op">,</span></span>
+<span id="cb11-163"><a href="#cb11-163" aria-hidden="true" tabindex="-1"></a>      <span class="dt">stroke</span><span class="op">:</span> <span class="st">"#e76f51"</span>})</span>
+<span id="cb11-164"><a href="#cb11-164" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb11-165"><a href="#cb11-165" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div id="ojs-cell-11" data-nodetype="expression" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" data-width="40%" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="¿Internet marca diferencia?" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
+¿Internet marca diferencia?
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb12" data-startfrom="172" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 171;"><span id="cb12-172"><a href="#cb12-172" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb12-173"><a href="#cb12-173" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Acceso a internet"</span>}<span class="op">,</span></span>
+<span id="cb12-174"><a href="#cb12-174" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Nota final"</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb12-175"><a href="#cb12-175" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [Plot<span class="op">.</span><span class="fu">boxY</span>(filtrado<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"internet_access"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"final_score"</span><span class="op">,</span></span>
+<span id="cb12-176"><a href="#cb12-176" aria-hidden="true" tabindex="-1"></a>    <span class="dt">fill</span><span class="op">:</span> <span class="st">"internet_access"</span>})]</span>
+<span id="cb12-177"><a href="#cb12-177" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div id="ojs-cell-12" data-nodetype="expression" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card cell html-fill-item html-fill-container bslib-card" data-title="¿Y las actividades extraescolares?" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
+¿Y las actividades extraescolares?
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb13" data-startfrom="182" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 181;"><span id="cb13-182"><a href="#cb13-182" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb13-183"><a href="#cb13-183" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Actividades extraescolares"</span>}<span class="op">,</span></span>
+<span id="cb13-184"><a href="#cb13-184" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Nota final"</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb13-185"><a href="#cb13-185" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [Plot<span class="op">.</span><span class="fu">boxY</span>(filtrado<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"extracurricular"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"final_score"</span><span class="op">,</span></span>
+<span id="cb13-186"><a href="#cb13-186" aria-hidden="true" tabindex="-1"></a>    <span class="dt">fill</span><span class="op">:</span> <span class="st">"extracurricular"</span>})]</span>
+<span id="cb13-187"><a href="#cb13-187" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div id="ojs-cell-13" data-nodetype="expression" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+</div><div id="horas-de-estudio" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-horas-de-estudio">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr) minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" data-width="55%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Histograma con intervalos de clase (responde a los filtros)" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
+Histograma con intervalos de clase (responde a los filtros)
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb14" data-startfrom="196" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 195;"><span id="cb14-196"><a href="#cb14-196" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb14-197"><a href="#cb14-197" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Horas de estudio por semana"</span>}<span class="op">,</span></span>
+<span id="cb14-198"><a href="#cb14-198" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Frecuencia absoluta"</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb14-199"><a href="#cb14-199" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb14-200"><a href="#cb14-200" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">rectY</span>(filtrado<span class="op">,</span> Plot<span class="op">.</span><span class="fu">binX</span>({<span class="dt">y</span><span class="op">:</span> <span class="st">"count"</span>}<span class="op">,</span></span>
+<span id="cb14-201"><a href="#cb14-201" aria-hidden="true" tabindex="-1"></a>      {<span class="dt">x</span><span class="op">:</span> <span class="st">"study_hours_per_week"</span><span class="op">,</span> <span class="dt">thresholds</span><span class="op">:</span> <span class="dv">8</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"steelblue"</span>}))<span class="op">,</span></span>
+<span id="cb14-202"><a href="#cb14-202" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([<span class="dv">0</span>])</span>
+<span id="cb14-203"><a href="#cb14-203" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb14-204"><a href="#cb14-204" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div id="ojs-cell-14" data-nodetype="expression" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" data-width="45%" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Tabla de frecuencias (dataset completo, TP1)" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
+Tabla de frecuencias (dataset completo, TP1)
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div id="dlothxtwfv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;" class="html-fill-item html-fill-container">
+<style>#dlothxtwfv table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#dlothxtwfv thead, #dlothxtwfv tbody, #dlothxtwfv tfoot, #dlothxtwfv tr, #dlothxtwfv td, #dlothxtwfv th {
+  border-style: none;
+}
+
+#dlothxtwfv p {
+  margin: 0;
+  padding: 0;
+}
+
+#dlothxtwfv .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#dlothxtwfv .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#dlothxtwfv .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#dlothxtwfv .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#dlothxtwfv .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dlothxtwfv .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dlothxtwfv .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dlothxtwfv .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#dlothxtwfv .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#dlothxtwfv .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#dlothxtwfv .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#dlothxtwfv .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#dlothxtwfv .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#dlothxtwfv .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#dlothxtwfv .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#dlothxtwfv .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#dlothxtwfv .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#dlothxtwfv .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#dlothxtwfv .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dlothxtwfv .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#dlothxtwfv .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#dlothxtwfv .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#dlothxtwfv .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dlothxtwfv .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#dlothxtwfv .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#dlothxtwfv .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dlothxtwfv .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dlothxtwfv .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#dlothxtwfv .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dlothxtwfv .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#dlothxtwfv .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dlothxtwfv .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dlothxtwfv .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dlothxtwfv .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dlothxtwfv .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dlothxtwfv .gt_left {
+  text-align: left;
+}
+
+#dlothxtwfv .gt_center {
+  text-align: center;
+}
+
+#dlothxtwfv .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#dlothxtwfv .gt_font_normal {
+  font-weight: normal;
+}
+
+#dlothxtwfv .gt_font_bold {
+  font-weight: bold;
+}
+
+#dlothxtwfv .gt_font_italic {
+  font-style: italic;
+}
+
+#dlothxtwfv .gt_super {
+  font-size: 65%;
+}
+
+#dlothxtwfv .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#dlothxtwfv .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#dlothxtwfv .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#dlothxtwfv .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#dlothxtwfv .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#dlothxtwfv .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#dlothxtwfv .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#dlothxtwfv .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#dlothxtwfv div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="intervalo" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Intervalo</th>
+<th id="frec_abs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Frec. abs.</th>
+<th id="frec_rel" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Frec. rel.</th>
+<th id="frec_porc" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">%</th>
+<th id="frec_acum" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Frec. acum.</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="intervalo">[2,5.5]</td>
+<td class="gt_row gt_right" headers="frec_abs">85</td>
+<td class="gt_row gt_right" headers="frec_rel">0.17</td>
+<td class="gt_row gt_right" headers="frec_porc">17.00</td>
+<td class="gt_row gt_right" headers="frec_acum">85</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="intervalo">(5.5,9]</td>
+<td class="gt_row gt_right" headers="frec_abs">72</td>
+<td class="gt_row gt_right" headers="frec_rel">0.14</td>
+<td class="gt_row gt_right" headers="frec_porc">14.40</td>
+<td class="gt_row gt_right" headers="frec_acum">157</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="intervalo">(9,12.5]</td>
+<td class="gt_row gt_right" headers="frec_abs">62</td>
+<td class="gt_row gt_right" headers="frec_rel">0.12</td>
+<td class="gt_row gt_right" headers="frec_porc">12.40</td>
+<td class="gt_row gt_right" headers="frec_acum">219</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="intervalo">(12.5,16]</td>
+<td class="gt_row gt_right" headers="frec_abs">52</td>
+<td class="gt_row gt_right" headers="frec_rel">0.10</td>
+<td class="gt_row gt_right" headers="frec_porc">10.40</td>
+<td class="gt_row gt_right" headers="frec_acum">271</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="intervalo">(16,19.5]</td>
+<td class="gt_row gt_right" headers="frec_abs">43</td>
+<td class="gt_row gt_right" headers="frec_rel">0.09</td>
+<td class="gt_row gt_right" headers="frec_porc">8.60</td>
+<td class="gt_row gt_right" headers="frec_acum">314</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="intervalo">(19.5,23]</td>
+<td class="gt_row gt_right" headers="frec_abs">69</td>
+<td class="gt_row gt_right" headers="frec_rel">0.14</td>
+<td class="gt_row gt_right" headers="frec_porc">13.80</td>
+<td class="gt_row gt_right" headers="frec_acum">383</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="intervalo">(23,26.5]</td>
+<td class="gt_row gt_right" headers="frec_abs">56</td>
+<td class="gt_row gt_right" headers="frec_rel">0.11</td>
+<td class="gt_row gt_right" headers="frec_porc">11.20</td>
+<td class="gt_row gt_right" headers="frec_acum">439</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="intervalo">(26.5,30]</td>
+<td class="gt_row gt_right" headers="frec_abs">61</td>
+<td class="gt_row gt_right" headers="frec_rel">0.12</td>
+<td class="gt_row gt_right" headers="frec_porc">12.20</td>
+<td class="gt_row gt_right" headers="frec_acum">500</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<p>Amplitud de clase: <strong>3.5 horas</strong>. Asimetría: <strong>0.08</strong>. Al ser un valor cercano a 0, la distribución es aproximadamente simétrica.</p>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+</div><div id="datos" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-datos">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Dataset (responde a los filtros)" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
+Dataset (responde a los filtros)
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb15" data-startfrom="243" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 242;"><span id="cb15-243"><a href="#cb15-243" aria-hidden="true" tabindex="-1"></a>Inputs<span class="op">.</span><span class="fu">table</span>(filtrado<span class="op">,</span> {</span>
+<span id="cb15-244"><a href="#cb15-244" aria-hidden="true" tabindex="-1"></a>  <span class="dt">columns</span><span class="op">:</span> [<span class="st">"student_id"</span><span class="op">,</span> <span class="st">"gender"</span><span class="op">,</span> <span class="st">"age"</span><span class="op">,</span> <span class="st">"study_hours_per_week"</span><span class="op">,</span></span>
+<span id="cb15-245"><a href="#cb15-245" aria-hidden="true" tabindex="-1"></a>            <span class="st">"attendance_rate"</span><span class="op">,</span> <span class="st">"parent_education"</span><span class="op">,</span> <span class="st">"internet_access"</span><span class="op">,</span></span>
+<span id="cb15-246"><a href="#cb15-246" aria-hidden="true" tabindex="-1"></a>            <span class="st">"extracurricular"</span><span class="op">,</span> <span class="st">"previous_score"</span><span class="op">,</span> <span class="st">"final_score"</span><span class="op">,</span> <span class="st">"passed"</span>]<span class="op">,</span></span>
+<span id="cb15-247"><a href="#cb15-247" aria-hidden="true" tabindex="-1"></a>  <span class="dt">rows</span><span class="op">:</span> <span class="dv">15</span></span>
+<span id="cb15-248"><a href="#cb15-248" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div id="ojs-cell-15" data-nodetype="expression" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+</div>
+</div></div><aside id="bslib-sidebar-1" class="sidebar html-fill-container html-fill-item"><div class="html-fill-container html-fill-item">
+<p><strong>Filtros</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="43" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 42;"><span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>viewof genero <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">checkbox</span>([<span class="st">"Female"</span><span class="op">,</span> <span class="st">"Male"</span>]<span class="op">,</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Género"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> [<span class="st">"Female"</span><span class="op">,</span> <span class="st">"Male"</span>]})</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>viewof internet <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">checkbox</span>([<span class="st">"Yes"</span><span class="op">,</span> <span class="st">"No"</span>]<span class="op">,</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Acceso a internet"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> [<span class="st">"Yes"</span><span class="op">,</span> <span class="st">"No"</span>]})</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>viewof extra <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">checkbox</span>([<span class="st">"Yes"</span><span class="op">,</span> <span class="st">"No"</span>]<span class="op">,</span></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Extraescolares"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> [<span class="st">"Yes"</span><span class="op">,</span> <span class="st">"No"</span>]})</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>viewof educ <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">checkbox</span>(niveles<span class="op">,</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Educación de los padres"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> niveles})</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>viewof asist_min <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>(rango_a<span class="op">,</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Asistencia mínima (%)"</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> rango_a[<span class="dv">0</span>]})</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>filtrado <span class="op">=</span> data<span class="op">.</span><span class="fu">filter</span>(d <span class="kw">=&gt;</span></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>  genero<span class="op">.</span><span class="fu">includes</span>(d<span class="op">.</span><span class="at">gender</span>) <span class="op">&amp;&amp;</span></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>  internet<span class="op">.</span><span class="fu">includes</span>(d<span class="op">.</span><span class="at">internet_access</span>) <span class="op">&amp;&amp;</span></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>  extra<span class="op">.</span><span class="fu">includes</span>(d<span class="op">.</span><span class="at">extracurricular</span>) <span class="op">&amp;&amp;</span></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>  educ<span class="op">.</span><span class="fu">includes</span>(d<span class="op">.</span><span class="at">parent_education</span>) <span class="op">&amp;&amp;</span></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>  d<span class="op">.</span><span class="at">attendance_rate</span> <span class="op">&gt;=</span> asist_min</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-4" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-5" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-6" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div></aside>
+<button class="collapse-toggle" type="button" title="Toggle sidebar" aria-expanded="true" aria-controls="bslib-sidebar-1">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 16 16" class="bi bi-chevron-left collapse-icon" style="fill:currentColor;" aria-hidden="true" role="img">
+      <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"></path>
+    </svg>
+</button>
+<script data-bslib-sidebar-init="">
+bslib.Sidebar.initCollapsibleAll()
+</script>
+</div>
+
+
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImRhdGEgPSB0cmFuc3Bvc2UoZGF0b3MpXG5cbm1lZGlhID0gKGFyciwgZikgPT4gYXJyLmxlbmd0aCA/IGFyci5yZWR1Y2UoKHMsIGQpID0+IHMgKyBmKGQpLCAwKSAvIGFyci5sZW5ndGggOiBOYU5cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBnZW5lcm8gPSBJbnB1dHMuY2hlY2tib3goW1wiRmVtYWxlXCIsIFwiTWFsZVwiXSxcbiAge2xhYmVsOiBcIkfDqW5lcm9cIiwgdmFsdWU6IFtcIkZlbWFsZVwiLCBcIk1hbGVcIl19KVxuXG52aWV3b2YgaW50ZXJuZXQgPSBJbnB1dHMuY2hlY2tib3goW1wiWWVzXCIsIFwiTm9cIl0sXG4gIHtsYWJlbDogXCJBY2Nlc28gYSBpbnRlcm5ldFwiLCB2YWx1ZTogW1wiWWVzXCIsIFwiTm9cIl19KVxuXG52aWV3b2YgZXh0cmEgPSBJbnB1dHMuY2hlY2tib3goW1wiWWVzXCIsIFwiTm9cIl0sXG4gIHtsYWJlbDogXCJFeHRyYWVzY29sYXJlc1wiLCB2YWx1ZTogW1wiWWVzXCIsIFwiTm9cIl19KVxuXG52aWV3b2YgZWR1YyA9IElucHV0cy5jaGVja2JveChuaXZlbGVzLFxuICB7bGFiZWw6IFwiRWR1Y2FjacOzbiBkZSBsb3MgcGFkcmVzXCIsIHZhbHVlOiBuaXZlbGVzfSlcblxudmlld29mIGFzaXN0X21pbiA9IElucHV0cy5yYW5nZShyYW5nb19hLFxuICB7bGFiZWw6IFwiQXNpc3RlbmNpYSBtw61uaW1hICglKVwiLCBzdGVwOiAxLCB2YWx1ZTogcmFuZ29fYVswXX0pXG5cbmZpbHRyYWRvID0gZGF0YS5maWx0ZXIoZCA9PlxuICBnZW5lcm8uaW5jbHVkZXMoZC5nZW5kZXIpICYmXG4gIGludGVybmV0LmluY2x1ZGVzKGQuaW50ZXJuZXRfYWNjZXNzKSAmJlxuICBleHRyYS5pbmNsdWRlcyhkLmV4dHJhY3VycmljdWxhcikgJiZcbiAgZWR1Yy5pbmNsdWRlcyhkLnBhcmVudF9lZHVjYXRpb24pICYmXG4gIGQuYXR0ZW5kYW5jZV9yYXRlID49IGFzaXN0X21pblxuKVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0zIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiKHtjb2xvcjogXCIjZThmMGY4XCIsIHZhbHVlOiBmaWx0cmFkby5sZW5ndGh9KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC00IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiKHtjb2xvcjogXCIjZThmMGY4XCIsXG4gIHZhbHVlOiBtZWRpYShmaWx0cmFkbywgZCA9PiBkLmZpbmFsX3Njb3JlKS50b0ZpeGVkKDEpfSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Iih7Y29sb3I6IFwiI2UzZjRlZlwiLFxuICB2YWx1ZTogKDEwMCAqIG1lZGlhKGZpbHRyYWRvLCBkID0+IGQucGFzc2VkID09PSBcIlllc1wiID8gMSA6IDApKS50b0ZpeGVkKDEpICsgXCIlXCJ9KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC02IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiKHtjb2xvcjogXCIjZThmMGY4XCIsXG4gIHZhbHVlOiBtZWRpYShmaWx0cmFkbywgZCA9PiBkLmF0dGVuZGFuY2VfcmF0ZSkudG9GaXhlZCgxKSArIFwiJVwifSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Iih7Y29sb3I6IFwiI2U4ZjBmOFwiLFxuICB2YWx1ZTogbWVkaWEoZmlsdHJhZG8sIGQgPT4gZC5zdHVkeV9ob3Vyc19wZXJfd2VlaykudG9GaXhlZCgxKX0pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTgiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJQbG90LnBsb3Qoe1xuICB4OiB7bGFiZWw6IFwiTm90YSBmaW5hbFwifSxcbiAgeToge2xhYmVsOiBcIkZyZWN1ZW5jaWFcIiwgZ3JpZDogdHJ1ZX0sXG4gIG1hcmtzOiBbXG4gICAgUGxvdC5yZWN0WShmaWx0cmFkbywgUGxvdC5iaW5YKHt5OiBcImNvdW50XCJ9LFxuICAgICAge3g6IFwiZmluYWxfc2NvcmVcIiwgdGhyZXNob2xkczogMjUsIGZpbGw6IFwic3RlZWxibHVlXCJ9KSksXG4gICAgUGxvdC5ydWxlWShbMF0pXG4gIF1cbn0pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTkiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJQbG90LnBsb3Qoe1xuICBtYXJnaW5MZWZ0OiA5MCxcbiAgeDoge2xhYmVsOiBcIiUgZGUgZXN0dWRpYW50ZXNcIiwgcGVyY2VudDogdHJ1ZSwgZ3JpZDogdHJ1ZX0sXG4gIHk6IHtsYWJlbDogbnVsbH0sXG4gIGNvbG9yOiB7ZG9tYWluOiBbXCJZZXNcIiwgXCJOb1wiXSwgcmFuZ2U6IFtcIiMyYTlkOGZcIiwgXCIjZTc2ZjUxXCJdLFxuICAgICAgICAgIGxlZ2VuZDogdHJ1ZSwgbGFiZWw6IG51bGx9LFxuICBtYXJrczogW1xuICAgIFBsb3QuYmFyWChmaWx0cmFkbywgUGxvdC5ncm91cFkoe3g6IFwiY291bnRcIn0sXG4gICAgICB7eTogXCJwYXJlbnRfZWR1Y2F0aW9uXCIsIGZpbGw6IFwicGFzc2VkXCIsIG9mZnNldDogXCJub3JtYWxpemVcIiwgdGlwOiB0cnVlfSkpLFxuICAgIFBsb3QucnVsZVgoWzBdKVxuICBdXG59KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0xMCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlBsb3QucGxvdCh7XG4gIHg6IHtsYWJlbDogXCJIb3JhcyBkZSBlc3R1ZGlvIHBvciBzZW1hbmFcIn0sXG4gIHk6IHtsYWJlbDogXCJOb3RhIGZpbmFsXCIsIGdyaWQ6IHRydWV9LFxuICBjb2xvcjoge2RvbWFpbjogW1wiTm9cIiwgXCJZZXNcIl0sIHJhbmdlOiBbXCIjZTc2ZjUxXCIsIFwiIzJhOWQ4ZlwiXSxcbiAgICAgICAgICBsZWdlbmQ6IHRydWUsIGxhYmVsOiBcIkFwcm9iw7NcIn0sXG4gIG1hcmtzOiBbXG4gICAgUGxvdC5kb3QoZmlsdHJhZG8sIHt4OiBcInN0dWR5X2hvdXJzX3Blcl93ZWVrXCIsIHk6IFwiZmluYWxfc2NvcmVcIixcbiAgICAgIHN0cm9rZTogXCJwYXNzZWRcIiwgcjogMywgZmlsbE9wYWNpdHk6IDAuNCxcbiAgICAgIHRpdGxlOiBkID0+IGBJRDogJHtkLnN0dWRlbnRfaWR9YCwgdGlwOiB0cnVlfSlcbiAgXVxufSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMTEiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJQbG90LnBsb3Qoe1xuICB4OiB7bGFiZWw6IFwiTm90YSBhbnRlcmlvclwifSxcbiAgeToge2xhYmVsOiBcIk5vdGEgZmluYWxcIiwgZ3JpZDogdHJ1ZX0sXG4gIG1hcmtzOiBbXG4gICAgUGxvdC5kb3QoZmlsdHJhZG8sIHt4OiBcInByZXZpb3VzX3Njb3JlXCIsIHk6IFwiZmluYWxfc2NvcmVcIixcbiAgICAgIGZpbGw6IFwic3RlZWxibHVlXCIsIGZpbGxPcGFjaXR5OiAwLjUsIHI6IDMsIHRpcDogdHJ1ZX0pLFxuICAgIFBsb3QubGluZWFyUmVncmVzc2lvblkoZmlsdHJhZG8sIHt4OiBcInByZXZpb3VzX3Njb3JlXCIsIHk6IFwiZmluYWxfc2NvcmVcIixcbiAgICAgIHN0cm9rZTogXCIjZTc2ZjUxXCJ9KVxuICBdXG59KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0xMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlBsb3QucGxvdCh7XG4gIHg6IHtsYWJlbDogXCJBY2Nlc28gYSBpbnRlcm5ldFwifSxcbiAgeToge2xhYmVsOiBcIk5vdGEgZmluYWxcIiwgZ3JpZDogdHJ1ZX0sXG4gIG1hcmtzOiBbUGxvdC5ib3hZKGZpbHRyYWRvLCB7eDogXCJpbnRlcm5ldF9hY2Nlc3NcIiwgeTogXCJmaW5hbF9zY29yZVwiLFxuICAgIGZpbGw6IFwiaW50ZXJuZXRfYWNjZXNzXCJ9KV1cbn0pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTEzIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiUGxvdC5wbG90KHtcbiAgeDoge2xhYmVsOiBcIkFjdGl2aWRhZGVzIGV4dHJhZXNjb2xhcmVzXCJ9LFxuICB5OiB7bGFiZWw6IFwiTm90YSBmaW5hbFwiLCBncmlkOiB0cnVlfSxcbiAgbWFya3M6IFtQbG90LmJveFkoZmlsdHJhZG8sIHt4OiBcImV4dHJhY3VycmljdWxhclwiLCB5OiBcImZpbmFsX3Njb3JlXCIsXG4gICAgZmlsbDogXCJleHRyYWN1cnJpY3VsYXJcIn0pXVxufSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMTQiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJQbG90LnBsb3Qoe1xuICB4OiB7bGFiZWw6IFwiSG9yYXMgZGUgZXN0dWRpbyBwb3Igc2VtYW5hXCJ9LFxuICB5OiB7bGFiZWw6IFwiRnJlY3VlbmNpYSBhYnNvbHV0YVwiLCBncmlkOiB0cnVlfSxcbiAgbWFya3M6IFtcbiAgICBQbG90LnJlY3RZKGZpbHRyYWRvLCBQbG90LmJpblgoe3k6IFwiY291bnRcIn0sXG4gICAgICB7eDogXCJzdHVkeV9ob3Vyc19wZXJfd2Vla1wiLCB0aHJlc2hvbGRzOiA4LCBmaWxsOiBcInN0ZWVsYmx1ZVwifSkpLFxuICAgIFBsb3QucnVsZVkoWzBdKVxuICBdXG59KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0xNSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IklucHV0cy50YWJsZShmaWx0cmFkbywge1xuICBjb2x1bW5zOiBbXCJzdHVkZW50X2lkXCIsIFwiZ2VuZGVyXCIsIFwiYWdlXCIsIFwic3R1ZHlfaG91cnNfcGVyX3dlZWtcIixcbiAgICAgICAgICAgIFwiYXR0ZW5kYW5jZV9yYXRlXCIsIFwicGFyZW50X2VkdWNhdGlvblwiLCBcImludGVybmV0X2FjY2Vzc1wiLFxuICAgICAgICAgICAgXCJleHRyYWN1cnJpY3VsYXJcIiwgXCJwcmV2aW91c19zY29yZVwiLCBcImZpbmFsX3Njb3JlXCIsIFwicGFzc2VkXCJdLFxuICByb3dzOiAxNVxufSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnZ2VuZXJvJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2ludGVybmV0JykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2V4dHJhJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2VkdWMnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnYXNpc3RfbWluJykifV19
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../..";
+window._ojs.paths.runtimeToRoot = "../../..";
+window._ojs.paths.docToRoot = "";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /container fluid -->
+
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (_event) {
+  if (window.bslib.Card) {
+    window.bslib.Card.initializeAllCards();
+  }
+}); 
+</script>
+  
+
+
+
+</body></html>
